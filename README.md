@@ -76,7 +76,7 @@ npm test
 
 ## Notes and credits
 
-Desktop Chromium browsers are the verified target. Screen picking depends on browser support. CMYK is an approximate screen conversion, not a print profile; Add (Glow) in Filter Lab is experimental.
+Desktop Chromium browsers are the verified target. **Screen color picking (Pick screen) does not work in Firefox.** CMYK is an approximate screen conversion, not a print profile; Add (Glow) in Filter Lab is experimental.
 
 **Tutorial sprite art: [@nerukka38261](https://x.com/nerukka38261).** The original transparent regular and glasses poses are embedded in the offline app. See [third-party credits](THIRD_PARTY_NOTICES.md).
 

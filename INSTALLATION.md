@@ -9,15 +9,15 @@
 
 Open the HTML file from the extracted folder. There is no installer, account, server or command-line setup. The app and included guides work offline after download.
 
+**Firefox:** screen color picking (**Pick screen**) does not work in Firefox.
+
 **? Learn** opens short illustrated sections inside the app. **User Guide.html** explains the controls, and **Installation Guide.html** contains these setup instructions.
 
 ## Which download?
 
-| File | Contents |
-| --- | --- |
-| Shade-Lab-HTML-v3.8.2.zip | Ready-to-open app, guides, examples, screenshots and credits. |
-| Shade-Lab-Source-v3.8.2.zip | Editable source, build scripts and tests for developers. |
-| SHA256SUMS.txt | Checksums for verifying the two ZIP downloads. |
+- **Shade-Lab-HTML-v3.8.2.zip:** ready-to-open app, guides, examples, screenshots and credits.
+- **Shade-Lab-Source-v3.8.2.zip:** editable source, build scripts and tests for developers.
+- **SHA256SUMS.txt:** checksums for verifying the two ZIP downloads.
 
 ## Save your work
 
