@@ -1,5 +1,9 @@
 # Shade Lab 3.8.2 — user guide
 
+## Download and open
+
+Download **Shade-Lab-HTML-v3.8.2.zip** from the GitHub release, extract it into a folder, then open **Shade Lab.html** in your desktop browser. On Windows, use **Extract All** before opening the HTML file. **Installation Guide.html** in the ZIP covers setup, saving and updating. No installer, account or server is needed.
+
 ## Tutorial characters
 
 The regular character welcomes you on the category menu. The character with glasses appears beside each lesson after you enter a section or the full guide. The characters accompany the existing illustrated examples. Sprite art: @nerukka38261 — https://x.com/nerukka38261. The credit in the app opens the artist’s page. Both original transparent sprites are embedded, so no connection is needed to see them.

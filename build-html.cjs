@@ -28,4 +28,5 @@ function guide(source, output, title) {
 }
 guide('HTML_GUIDE.md', 'User Guide.html', 'Shade Lab — User Guide');
 guide('AI_FORMULA_GUIDE.md', 'AI Formula Guide.html', 'Shade Lab — AI Formula Guide');
+guide('INSTALLATION.md', 'Installation Guide.html', 'Shade Lab — Download and Setup');
 console.log('Built browser-readable guides');

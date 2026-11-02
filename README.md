@@ -2,7 +2,7 @@
 
 An offline color-study app for artists. Build shading palettes on a ball, compare color relationships, and try filters before taking the colors back to your artwork. Open one HTML file in your browser—no account or installation required.
 
-**[Download Shade Lab 3.8.2](https://github.com/Y1-studio/Shade-Lab/releases/tag/v3.8.2)** · [User guide](HTML_GUIDE.md) · [Formula guide](AI_FORMULA_GUIDE.md)
+**[Download Shade Lab 3.8.2](https://github.com/Y1-studio/Shade-Lab/releases/tag/v3.8.2)** · [Installation guide](INSTALLATION.md) · [User guide](HTML_GUIDE.md) · [Formula guide](AI_FORMULA_GUIDE.md)
 
 ![Shade Lab color picker, study balls and color analysis](docs/screenshots/studio.jpg)
 
@@ -12,7 +12,7 @@ An offline color-study app for artists. Build shading palettes on a ball, compar
 2. Open **Shade Lab.html** in your desktop browser.
 3. Click a colored part of a ball to select what you edit. Change its color with the wheel, sliders or HEX field; linked shading colors follow their recipes. **? Learn** introduces the app in short illustrated sections.
 
-The app works offline. **User Guide.html** is included in the download.
+The app works offline. **Installation Guide.html** and **User Guide.html** are included in the download. See the [installation guide](INSTALLATION.md) for ZIP extraction, opening the HTML file, saving and updating.
 
 ## Features
 
