@@ -1,0 +1,4 @@
+[data-shade-addon="wheel-position-swap"] .actions { justify-content: flex-end; }
+[data-shade-addon="wheel-position-swap"] .actions select { flex: 1 1 110px; min-width: 0; }
+[data-shade-addon="wheel-position-swap"] .actions button { flex: 0 0 auto; }
+[data-shade-addon="wheel-position-swap"] .hint { font-size: 12px; margin: 7px 0 14px; }
