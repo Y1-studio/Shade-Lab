@@ -1,0 +1,12 @@
+.ball-card:has([data-shade-addon="ball-background"].bg-card-controls)>canvas{width:calc(100% - 28px);margin:12px 14px 10px;border-radius:10px}
+.ball-card:has([data-shade-addon="ball-background"][data-background-visible=true])>canvas{outline:1px solid #ffffff26;outline-offset:-1px}
+.ball-addon-actions:has(>[data-shade-addon="ball-background"]){min-width:0;max-width:100%}
+[data-shade-addon="ball-background"].bg-card-controls{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;min-width:0;max-width:100%}
+[data-shade-addon="ball-background"] button{font-size:12px;min-height:30px;padding:4px 7px;flex-shrink:0}
+[data-shade-addon="ball-background"] .bg-card-edit{display:flex;align-items:center;gap:5px;flex:1 1 auto;min-width:0}
+[data-shade-addon="ball-background"] .bg-card-edit>span:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+[data-shade-addon="ball-background"] .bg-card-dot{width:13px;height:13px;flex-shrink:0;border:1px solid #a6b2c1;border-radius:3px}
+[data-shade-addon="ball-background"] .bg-card-edit[aria-pressed=true]{color:var(--accent);border-color:var(--accent);background:#243e35}
+[data-shade-addon="ball-background"] .bg-card-toggle,[data-shade-addon="ball-background"] .bg-card-clear{display:grid;place-items:center;width:30px;min-width:30px;padding:4px}
+[data-shade-addon="ball-background"] .bg-card-toggle svg{width:16px;height:16px;display:block}
+[data-shade-addon="ball-background"] .bg-card-clear{font-size:18px;line-height:1}

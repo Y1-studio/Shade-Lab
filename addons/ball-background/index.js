@@ -1,0 +1,1 @@
+const addon={service:BallBackground,colorTargets:{background:{label:'Background',read:BallBackground.read,write:BallBackground.write}},engine:{validate:BallBackground.check},drawBallBackdrop:BallBackground.draw,activate:backgroundControls};
