@@ -1,0 +1,21 @@
+# Quick start tutorial
+
+Learn offers Ball basics (8 steps), Icon controls (12), Tools (7) and Tabs (4), or the full 31-step guide. Every step includes a nonempty illustration; tool images come from the real detached preview, and the reference-ball teaching images share geometry with the importable example type. Category buttons start only that section. The coach's category menu changes routes immediately, including safely leaving native creation dialogs and detached editors. The header shows the category and local step; progress follows the selected route. Next and Back require no accepted actions.
+
+Ball basics covers direct artwork selection, points, optional creation/custom types, storage and group selection. Every icon retains its own visual demonstration. Tools opens separate harmony, hue-limit, lock, area, line and comparison previews, and demonstrates disabling constraints without deleting settings. Tabs opens Balls, Filter Lab, Reference Image and History; the reference illustration is labeled as an example and history has committed temporary colors. The uninstalled point-layout package is intentionally omitted.
+
+`ball.js`, `icons.js`, `tools.js` and `tabs.js` keep lesson text by category. `content.js` assembles the read-only catalog. `controller.js` owns category routes, presentation and the workspace lease; `demonstration.js` owns real control actions and rendered examples. Every step creates a fresh square practice project; Back and category changes recreate clean examples. X, Escape, route completion and cleanup restore the user's work and shape preference. There are no automatic screen-picker requests or downloads.
+
+Next is always enabled; Back and arrow keys revisit steps. Finish ends the chosen category or full guide directly. There are no action gates, detailed mode, branches, skip labels or extra completion screen. Both the introduction and coach have an accessible 44 × 44 px × button. The coach header stays visible while scrolling, and the layer moves into native modal dialogs to keep the exit usable. Escape exits from any step.
+
+`controller.js` owns navigation and the temporary workspace; `demonstration.js` owns example actions and rendered pairs; `position.js` places the coach outside the highlighted target. Scoped CSS accommodates small viewports. Practice changes are not autosaved. X, Escape, Finish and addon cleanup restore the original project/library/reference/selection and Undo history through the host workspace lease. Existing previews block start.
+
+Run `npm run test:tutorial` and `npm run test:tutorial -- --portable`. `node addons/guided-tutorial/tests/browser.cjs` checks source and portable builds at five viewport sizes, checks actual rendered picker shapes and distinct before/after images, hit-tests X, verifies spotlight separation and cancellation at every step, keyboard navigation, native modals, offline behavior and restoration. Set PLAYWRIGHT_MODULE to an installed Playwright module path if it is not locally resolvable; BROWSER_EXECUTABLE can override Edge. Screenshots and JSON results remain ignored under tests/artifacts/guided-tutorial.
+
+`reference-ball.js` owns the traced reference paths; `illustrations.js` supplies images for steps without an effect comparison. `build-reference.cjs` reproducibly generates `examples/green-reference-ball.json`, containing three editable mask PNGs and a fixed outline overlay. Run it before release checks if the paths change. The gray cast shadow stays separate from ball regions.
+
+## Tutorial characters
+
+The category menu uses the original regular pose (`assets/RMQ2_1.png`); every active lesson uses the glasses pose (`assets/RMQ2.png`). Sprite art: [@nerukka38261](https://x.com/nerukka38261). Credits appear in both views, opening a separate tab. The PNGs retain their original RGBA bytes and are rendered with a proportional, pixelated fit. Characters stay beside the heading/copy while examples and sticky exit/navigation remain separate.
+
+Run `node addons/guided-tutorial/build-sprites.cjs` after replacing the source PNGs, then `npm run build:html`. The generated `sprite-data.js` embeds both images as data URLs; `sprites.js` creates character and credit elements. No external files or requests are needed by the portable app.

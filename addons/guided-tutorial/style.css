@@ -1,0 +1,68 @@
+[data-shade-addon="guided-tutorial"]{font:14px/1.5 'Segoe UI',system-ui,sans-serif}
+[data-shade-addon="guided-tutorial"] #tutorial-open{white-space:nowrap;border-color:#657a74}
+dialog[data-shade-addon="guided-tutorial"]{width:420px;max-width:calc(100vw - 24px);padding:20px}
+dialog[data-shade-addon="guided-tutorial"]{max-height:calc(100dvh - 24px);overflow:auto}
+[data-shade-addon="guided-tutorial"] .tutorial-categories{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+[data-shade-addon="guided-tutorial"] .tutorial-categories button{padding:10px;text-align:left;min-width:0}
+[data-shade-addon="guided-tutorial"] .tutorial-categories small{display:block;font-size:11px;line-height:1.4;color:#c1d1c9;margin-top:4px}
+[data-shade-addon="guided-tutorial"] #tutorial-category{width:100%;min-height:30px;font-size:12px;margin:4px 0}
+[data-shade-addon="guided-tutorial"] h2{font-size:21px;line-height:1.25;margin:0 0 12px}
+[data-shade-addon="guided-tutorial"] .tutorial-small{font-size:13px;color:var(--muted);line-height:1.5}
+[data-shade-addon="guided-tutorial"] #tutorial-start-notice:empty{display:none}
+[data-shade-addon="guided-tutorial"] #tutorial-start-simple{width:100%;margin-top:8px}
+[data-shade-addon="guided-tutorial"] .tutorial-hero{display:flex;align-items:center;gap:14px;margin:8px 0;min-width:0}
+[data-shade-addon="guided-tutorial"] .tutorial-hero>div{min-width:0;flex:1}
+[data-shade-addon="guided-tutorial"] .tutorial-sprite{display:block;flex:none;width:auto;height:96px;object-fit:contain;image-rendering:pixelated}
+[data-shade-addon="guided-tutorial"] .tutorial-intro-hero .tutorial-sprite{height:128px}
+[data-shade-addon="guided-tutorial"] .tutorial-intro-hero p{margin:0 0 8px}
+[data-shade-addon="guided-tutorial"] .tutorial-lesson-hero h2{margin:0 0 8px}
+[data-shade-addon="guided-tutorial"] .tutorial-hero .tutorial-sprite-credit{font-size:11px;line-height:1.5;color:#c1d1c9;margin:0}
+[data-shade-addon="guided-tutorial"] .tutorial-sprite-credit a{color:#9ff4d6;text-underline-offset:2px}
+[data-shade-addon="guided-tutorial"] .tutorial-sprite-credit a:focus-visible{outline:2px solid #9ff4d6;outline-offset:2px}
+#tutorial-layer[data-shade-addon="guided-tutorial"]{position:fixed;inset:0;z-index:10000;pointer-events:none}
+[data-shade-addon="guided-tutorial"] .tutorial-spot{position:fixed;border:2px solid #9ff4d6;border-radius:9px;box-shadow:0 0 0 9999px #000a;pointer-events:none}
+[data-shade-addon="guided-tutorial"] .tutorial-source{position:fixed;border:2px solid #9ff4d6;border-radius:9px;pointer-events:none}
+[data-shade-addon="guided-tutorial"] .tutorial-example{margin:8px 0 12px;padding:8px;background:#11191e;border:1px solid #465b52;border-radius:8px}
+[data-shade-addon="guided-tutorial"] .tutorial-example>figcaption{font-size:12px;color:#b7d6ca;margin-bottom:4px}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:center}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair[data-columns="1"]{grid-template-columns:1fr}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair[data-columns="3"]{grid-template-columns:repeat(3,minmax(0,1fr))}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair[data-columns="4"]{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair[data-columns="4"] canvas{height:72px}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair canvas{display:block;width:100%;height:100px;object-fit:contain}
+[data-shade-addon="guided-tutorial"] .tutorial-example-pair span{font-size:11px;color:#cbd8d2}
+[data-shade-addon="guided-tutorial"] #tutorial-card{position:fixed;box-sizing:border-box;width:350px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto;padding:18px;background:#1b232b;color:#edf2f4;border:1px solid #63776e;border-radius:14px;box-shadow:0 10px 50px #0009;pointer-events:auto;scrollbar-width:thin}
+[data-shade-addon="guided-tutorial"] #tutorial-card:focus{outline:none}
+[data-shade-addon="guided-tutorial"] .tutorial-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:-18px;background:#1b232b;z-index:3;padding:4px 0}
+[data-shade-addon="guided-tutorial"] #tutorial-meta{font-size:12px;color:#b7d6ca;margin:0}
+[data-shade-addon="guided-tutorial"] :is(#tutorial-close,#tutorial-choose-close){flex:none;display:grid;place-items:center;font-size:28px;line-height:1;width:44px;height:44px;min-height:44px;padding:0;background:#27352f;color:#edf2f4;border:1px solid #81978d;border-radius:9px;cursor:pointer}
+[data-shade-addon="guided-tutorial"] :is(#tutorial-close,#tutorial-choose-close):hover{background:#3b5146}
+[data-shade-addon="guided-tutorial"] :is(#tutorial-close,#tutorial-choose-close):focus-visible{outline:2px solid #9ff4d6;outline-offset:2px}
+[data-shade-addon="guided-tutorial"] progress{width:100%;height:4px;accent-color:#9ff4d6;display:block;margin:10px 0 16px}
+[data-shade-addon="guided-tutorial"] #tutorial-copy p{margin:10px 0;font-size:14px;line-height:1.45}
+[data-shade-addon="guided-tutorial"] .tutorial-nav{display:flex;gap:10px;position:sticky;bottom:-18px;background:#1b232b;margin-top:16px;padding:8px 0;z-index:2}
+[data-shade-addon="guided-tutorial"] .tutorial-nav button{flex:1;min-width:0;min-height:40px}
+[data-shade-addon="guided-tutorial"].tutorial-runway{height:100dvh;pointer-events:none}
+[data-shade-addon="guided-tutorial"][data-compact=true] #tutorial-card{max-height:52dvh;padding:12px;width:330px}
+[data-shade-addon="guided-tutorial"][data-compact=true][data-example=true] #tutorial-card{max-height:70dvh}
+[data-shade-addon="guided-tutorial"][data-compact=true] .tutorial-example{padding:6px;margin:6px 0}
+[data-shade-addon="guided-tutorial"][data-compact=true] .tutorial-example-pair canvas{height:76px}
+[data-shade-addon="guided-tutorial"][data-compact=true] #tutorial-card h2{font-size:17px;margin:6px 0}
+[data-shade-addon="guided-tutorial"][data-compact=true] #tutorial-copy p{font-size:13px;margin:8px 0}
+[data-shade-addon="guided-tutorial"][data-compact=true] progress{margin:5px 0;height:3px}
+[data-shade-addon="guided-tutorial"][data-compact=true] .tutorial-nav{margin-top:5px;bottom:-12px}
+[data-shade-addon="guided-tutorial"][data-compact=true] .tutorial-top{top:-12px}
+[data-shade-addon="guided-tutorial"][data-compact=true] .tutorial-lesson-hero{gap:10px;margin:4px 0}
+[data-shade-addon="guided-tutorial"][data-compact=true] .tutorial-lesson-hero .tutorial-sprite{height:76px}
+/* Leave room for the coach beside contextual controls on short/narrow screens. */
+body:has([data-shade-addon="guided-tutorial"][data-context="true"]:not([hidden])) [data-shade-addon="studio-layout"] #sl-analysis{display:none}
+dialog:modal:has(>#tutorial-layer[data-shade-addon="guided-tutorial"]){top:12px;bottom:auto;margin-top:0;max-height:40dvh}
+body:has(#tutorial-layer[data-shade-addon="guided-tutorial"][data-compact=true]:not([hidden])) :is(#harmony-wheel,#hue-color-limits-wheel,#color-areas-wheel,#line-guides-wheel,#compare-wheel){width:min(100%,26dvh);height:auto;margin-inline:auto}
+body:has(#tutorial-layer[data-shade-addon="guided-tutorial"][data-example=true][data-compact=true]:not([hidden])) #gallery .ball-card.active>canvas{display:block;width:min(100%,26dvh);height:auto;margin-inline:auto}
+@media(max-width:700px){
+ body:has(#tutorial-layer[data-shade-addon="guided-tutorial"]:not([hidden])) [data-shade-addon="studio-layout"].sl-panel-open>.picker-panel{position:static}
+ body:has([data-shade-addon="guided-tutorial"][data-context="true"]:not([hidden])) [data-shade-addon="studio-layout"].sl-panel-open>:is(.picker-panel,.inspector){position:static;max-height:none;overflow:visible}
+ body:has([data-shade-addon="guided-tutorial"][data-context="true"]:not([hidden])) [data-shade-addon="studio-layout"].sl-panel-open #addon-studio-layout-inspector{height:auto;max-height:none}
+ body:has([data-shade-addon="guided-tutorial"][data-context="true"]:not([hidden])) [data-shade-addon="studio-layout"] #sl-panel-body{overflow:visible}
+ body:has(#tutorial-layer[data-shade-addon="guided-tutorial"][data-compact=true]:not([hidden])) #wheel{width:min(100%,26dvh);height:auto;margin-inline:auto}
+}

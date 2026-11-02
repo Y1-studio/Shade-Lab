@@ -1,0 +1,27 @@
+{
+  "id": "guided-tutorial",
+  "name": "Guided tutorials",
+  "version": "3.1.1",
+  "apiVersion": 1,
+  "requires": [
+    "studio-layout"
+  ],
+  "scripts": [
+    "ball.js",
+    "icons.js",
+    "tools.js",
+    "tabs.js",
+    "content.js",
+    "position.js",
+    "reference-ball.js",
+    "illustrations.js",
+    "demonstration.js",
+    "sprite-data.js",
+    "sprites.js",
+    "controller.js",
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}
