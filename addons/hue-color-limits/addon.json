@@ -1,0 +1,9 @@
+{
+  "id": "hue-color-limits",
+  "name": "Hue color limits",
+  "version": "1.2.0",
+  "apiVersion": 1,
+  "requires": ["surface-tools"],
+  "scripts": ["profiles.js", "geometry.js", "square.js", "controls.js", "index.js"],
+  "styles": ["style.css"]
+}
