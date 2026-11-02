@@ -44,7 +44,7 @@ Tools keep their own previews and Apply/Cancel controls. Filter Lab shows the or
 
 Load or paste an image, then click it to sample into the selected color. The History tab keeps completed color choices for reuse.
 
-![Reference-image workspace with an example shading study](docs/screenshots/reference.jpg)
+![Reference-image workspace with the app's regular Carmine and Midnight balls](docs/screenshots/reference-regular.jpg)
 
 ### Learn by section
 
