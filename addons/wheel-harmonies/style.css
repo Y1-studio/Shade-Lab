@@ -1,0 +1,18 @@
+[data-shade-addon="wheel-harmonies"] h2 { margin: 0 0 .65rem; }
+section[data-shade-addon="wheel-harmonies"] { margin-bottom: 1rem; }
+dialog[data-shade-addon="wheel-harmonies"] { width: min(760px, 94vw); max-height: 90vh; overflow-y: auto; }
+[data-shade-addon="wheel-harmonies"] .harmony-settings,
+[data-shade-addon="wheel-harmonies"] #harmony-roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1rem; margin-bottom: 1rem; }
+[data-shade-addon="wheel-harmonies"] .harmony-previews { display: flex; align-items: center; justify-content: center; gap: .5rem; flex-wrap: wrap; }
+[data-shade-addon="wheel-harmonies"] .harmony-previews canvas { width: min(280px, 100%); height: auto; }
+[data-shade-addon="wheel-harmonies"] .harmony-swatches { display: flex; flex-wrap: wrap; gap: .5rem; margin: .6rem 0; }
+[data-shade-addon="wheel-harmonies"] .harmony-swatches span { border-bottom: 8px solid; padding: .3rem; font-size: .8rem; }
+[data-shade-addon="wheel-harmonies"] [hidden] { display: none !important; }
+@media (max-width: 500px) {
+  [data-shade-addon="wheel-harmonies"] .harmony-settings,
+  [data-shade-addon="wheel-harmonies"] #harmony-roles { grid-template-columns: 1fr; }
+}
+[data-shade-addon="wheel-harmonies"] #harmony-wheel{touch-action:none;cursor:crosshair}
+[data-shade-addon="wheel-harmonies"] #harmony-base{appearance:textfield}
+[data-shade-addon="wheel-harmonies"] #harmony-base::-webkit-inner-spin-button,[data-shade-addon="wheel-harmonies"] #harmony-base::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+[data-shade-addon="wheel-harmonies"] .harmony-number-steps{display:flex;gap:4px}
