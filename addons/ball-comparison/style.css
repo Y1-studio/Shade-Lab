@@ -1,0 +1,13 @@
+dialog[data-shade-addon="ball-comparison"]{width:min(1100px,95vw);max-height:92vh;overflow:auto}
+[data-shade-addon="ball-comparison"] .compare-grid{display:grid;grid-template-columns:minmax(300px,1fr) minmax(170px,.7fr);gap:20px;align-items:start}
+[data-shade-addon="ball-comparison"] #compare-wheel{display:block;width:100%;max-width:560px;height:auto;cursor:crosshair}
+[data-shade-addon="ball-comparison"] #compare-legend{display:flex;flex-wrap:wrap;gap:10px;max-height:540px;overflow:auto}
+[data-shade-addon="ball-comparison"] .compare-card{display:flex;flex-direction:column;width:140px;font-size:12px}
+[data-shade-addon="ball-comparison"] .compare-card canvas{width:130px;height:auto}
+[data-shade-addon="ball-comparison"] .compare-table-scroll{overflow:auto;margin:15px 0}
+[data-shade-addon="ball-comparison"] table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}
+[data-shade-addon="ball-comparison"] th,[data-shade-addon="ball-comparison"] td{border-bottom:1px solid #36404d;padding:7px;text-align:left}
+[data-shade-addon="ball-comparison"] .selected{background:#36404d}
+[data-shade-addon="ball-comparison"] .compare-swatch{display:inline-block;width:17px;height:17px;border:1px solid #eee;vertical-align:middle;margin-right:8px;border-radius:50%}
+[data-shade-addon="ball-comparison"] td button{font-size:12px;margin-left:6px}
+@media(max-width:680px){[data-shade-addon="ball-comparison"] .compare-grid{grid-template-columns:1fr}[data-shade-addon="ball-comparison"] #compare-legend{max-height:200px}}

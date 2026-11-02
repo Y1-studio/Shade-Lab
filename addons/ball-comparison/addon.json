@@ -1,0 +1,14 @@
+{
+  "id": "ball-comparison",
+  "name": "Compare balls",
+  "version": "1.0.1",
+  "apiVersion": 1,
+  "scripts": [
+    "wheel.js",
+    "controls.js",
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}
