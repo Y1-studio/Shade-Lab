@@ -10,6 +10,8 @@ Shade Lab is a portable browser app for building shading palettes, comparing col
 
 [Installation guide](https://github.com/Y1-studio/Shade-Lab/blob/main/INSTALLATION.md) covers setup, opening the file, saving and updates. **Installation Guide.html** is also included in the ZIP for offline use.
 
+**Firefox:** screen color picking (**Pick screen**) does not work in Firefox.
+
 ## What you can do
 
 - Edit ball regions directly and let linked highlight/shadow recipes follow your base color.
