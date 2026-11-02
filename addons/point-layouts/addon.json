@@ -1,0 +1,1 @@
+{"id":"point-layouts","name":"Point layouts","version":"1.0.0","apiVersion":1,"requires":["surface-tools"],"scripts":["geometry.js","controls.js","index.js"]}
