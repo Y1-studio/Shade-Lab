@@ -1,0 +1,22 @@
+{
+  "id": "studio-layout",
+  "name": "Streamlined studio",
+  "version": "1.0.3",
+  "apiVersion": 1,
+  "requires": [
+    "tool-panel",
+    "blend-filters",
+    "picker-grayscale",
+    "wheel-position-swap",
+    "ball-background"
+  ],
+  "scripts": [
+    "history.js",
+    "panels.js",
+    "controls.js",
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}
