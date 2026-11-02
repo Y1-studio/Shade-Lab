@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "addons": [
+    {
+      "path": "color-pick-lock",
+      "enabled": true
+    },
+    {
+      "path": "picker-grayscale",
+      "enabled": true
+    },
+    {
+      "path": "wheel-harmonies",
+      "enabled": true
+    },
+    {
+      "path": "surface-tools",
+      "enabled": true
+    },
+    {
+      "path": "color-areas",
+      "enabled": true
+    },
+    {
+      "path": "hue-color-limits",
+      "enabled": true
+    },
+    {
+      "path": "line-guides",
+      "enabled": true
+    },
+    {
+      "path": "ball-comparison",
+      "enabled": true
+    },
+    {
+      "path": "wheel-position-swap",
+      "enabled": true
+    },
+    {
+      "path": "tool-panel",
+      "enabled": true
+    },
+    {
+      "path": "blend-filters",
+      "enabled": true
+    },
+    {
+      "path": "ball-background",
+      "enabled": true
+    },
+    {
+      "path": "studio-layout",
+      "enabled": true
+    },
+    {
+      "path": "guided-tutorial",
+      "enabled": true
+    }
+  ]
+}
