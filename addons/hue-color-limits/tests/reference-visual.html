@@ -1,0 +1,74 @@
+<div id="rgb-cmy-area-map">
+  <style>
+    #rgb-cmy-area-map { color:var(--foreground); }
+    #rgb-cmy-area-map .wheel-wrap { max-width:420px; margin:auto; }
+    #rgb-cmy-area-map canvas { display:block; width:100%; }
+    #rgb-cmy-area-map .plots { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px 12px; margin-top:20px; }
+    #rgb-cmy-area-map .plot { min-width:0; }
+    #rgb-cmy-area-map .plot-title { display:flex; align-items:center; gap:8px; }
+    #rgb-cmy-area-map .sample { width:20px;height:20px;flex-shrink:0;border:1px solid var(--border); }
+    #rgb-cmy-area-map .detail { display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;min-height:44px; }
+    #rgb-cmy-area-map .legend { display:flex;justify-content:center;gap:16px;flex-wrap:wrap; }
+    #rgb-cmy-area-map .solid-key { display:inline-block;width:22px;border-top:2px solid var(--foreground);vertical-align:middle;margin-right:5px; }
+    #rgb-cmy-area-map .data-row { margin:3px 0; }
+    #rgb-cmy-area-map .plot canvas { touch-action:none;cursor:crosshair; }
+    @media(max-width:620px) { #rgb-cmy-area-map .plots {grid-template-columns:repeat(2,minmax(0,1fr));} }
+    @media(max-width:420px) { #rgb-cmy-area-map .plots {grid-template-columns:minmax(0,1fr);} }
+  </style>
+  <h3>RGB / CMY positions and color areas</h3>
+  <div class="wheel-wrap"><canvas class="hue-wheel cursor-interaction" role="img" aria-label="Hue wheel in the book's orientation: yellow at top, red upper left, green upper right, cyan lower right, blue at bottom and magenta lower left. Exact primary hues are marked; dividing lines show midpoint hue bands."></canvas></div>
+  <div class="legend text-small"><span>Markers: exact primary hue</span><span>Hue bands: midpoint divisions, ±30°</span></div>
+  <div class="detail tabular-nums" aria-live="polite"><span class="sample"></span><span class="readout"></span></div>
+  <div class="viz-controls">
+    <label class="form-label">Saturation (%) <input class="form-control saturation" type="number" min="0" max="100" step="0.1" value="50"></label>
+    <label class="form-label">Value (%) <input class="form-control value" type="number" min="0" max="100" step="0.1" value="70"></label>
+  </div>
+  <div class="plots"></div>
+  <div class="legend text-small" style="margin-top:18px"><span><i class="solid-key"></i>Book cutout: traced estimate</span><span>Faded + hatched: excluded area</span></div>
+  <script>
+  (() => {
+    const root=document.getElementById('rgb-cmy-area-map');
+    const data=[{"name":"Red","short":"R","hue":0,"rgb":[255,0,0],"hex":"#FF0000","wheel_position_percent":{"x":6.69873,"y":25.0},"hue_band":{"start":330,"end":30,"definition":"Nearest-primary midpoint grouping; not a unique physical hue boundary"},"bounds":{"s":[4.7,100],"v":[25.9,100]},"path":[["M",0.047,0],["L",0.748,0],["L",0.748,0.265],["L",1,0.265],["C",0.98,0.49,0.84,0.7,0.59,0.735],["C",0.39,0.76,0.2,0.7,0.047,0.56],["Z"]],"path_coordinates":"x = HSV saturation / 100; y = 1 - HSV value / 100; inferred from scanned book; approximate"},{"name":"Yellow","short":"Y","hue":60,"rgb":[255,255,0],"hex":"#FFFF00","wheel_position_percent":{"x":50.0,"y":0.0},"hue_band":{"start":30,"end":90,"definition":"Nearest-primary midpoint grouping; not a unique physical hue boundary"},"bounds":{"s":[5.4,100],"v":[20.0,100]},"path":[["M",0.054,0],["L",0.745,0],["L",0.745,0.26],["L",1,0.26],["L",1,0.597],["C",0.74,0.82,0.36,0.88,0.054,0.671],["Z"]],"path_coordinates":"x = HSV saturation / 100; y = 1 - HSV value / 100; inferred from scanned book; approximate"},{"name":"Green","short":"G","hue":120,"rgb":[0,255,0],"hex":"#00FF00","wheel_position_percent":{"x":93.30127,"y":25.0},"hue_band":{"start":90,"end":150,"definition":"Nearest-primary midpoint grouping; not a unique physical hue boundary"},"bounds":{"s":[5.3,100],"v":[17.8,100]},"path":[["M",0.053,0],["L",0.74,0],["L",0.74,0.26],["L",1,0.26],["L",1,0.58],["C",0.79,0.79,0.39,0.96,0.053,0.66],["Z"]],"path_coordinates":"x = HSV saturation / 100; y = 1 - HSV value / 100; inferred from scanned book; approximate"},{"name":"Cyan","short":"C","hue":180,"rgb":[0,255,255],"hex":"#00FFFF","wheel_position_percent":{"x":93.30127,"y":75.0},"hue_band":{"start":150,"end":210,"definition":"Nearest-primary midpoint grouping; not a unique physical hue boundary"},"bounds":{"s":[4.7,100],"v":[24.7,100]},"path":[["M",0.047,0],["L",0.745,0],["L",0.745,0.255],["L",1,0.255],["L",1,0.517],["C",0.77,0.77,0.36,0.83,0.047,0.644],["Z"]],"path_coordinates":"x = HSV saturation / 100; y = 1 - HSV value / 100; inferred from scanned book; approximate"},{"name":"Blue","short":"B","hue":240,"rgb":[0,0,255],"hex":"#0000FF","wheel_position_percent":{"x":50.0,"y":100.0},"hue_band":{"start":210,"end":270,"definition":"Nearest-primary midpoint grouping; not a unique physical hue boundary"},"bounds":{"s":[5.3,74.0],"v":[30.5,100]},"path":[["M",0.053,0],["L",0.727,0],["C",0.8,0.41,0.57,0.75,0.053,0.687],["Z"]],"path_coordinates":"x = HSV saturation / 100; y = 1 - HSV value / 100; inferred from scanned book; approximate"},{"name":"Magenta","short":"M","hue":300,"rgb":[255,0,255],"hex":"#FF00FF","wheel_position_percent":{"x":6.69873,"y":75.0},"hue_band":{"start":270,"end":330,"definition":"Nearest-primary midpoint grouping; not a unique physical hue boundary"},"bounds":{"s":[4.7,100],"v":[24.4,100]},"path":[["M",0.047,0],["L",0.745,0],["L",0.745,0.255],["L",1,0.255],["C",0.9,0.72,0.57,0.89,0.047,0.644],["Z"]],"path_coordinates":"x = HSV saturation / 100; y = 1 - HSV value / 100; inferred from scanned book; approximate"}];
+    const grid=root.querySelector('.plots'),wheel=root.querySelector('.hue-wheel');
+    let selected='Red',point={s:0.5,v:0.7};
+    const original=window.openai?.widgetState?.modelContent;
+    if(original && data.some(d=>d.name===original.color)) {selected=original.color;point={s:Math.max(0,Math.min(1,original.s??.5)),v:Math.max(0,Math.min(1,original.v??.7))};}
+    const plots=new Map(),testContext=document.createElement('canvas').getContext('2d');
+    const colorProbe=document.createElement('span');colorProbe.hidden=true;colorProbe.setAttribute('aria-hidden','true');root.append(colorProbe);
+    function theme(){const s=getComputedStyle(root),resolve=token=>{colorProbe.style.color=`var(${token})`;return getComputedStyle(colorProbe).color;};return {fg:resolve('--foreground'),bg:resolve('--background'),line:resolve('--border'),font:s.fontFamily};}
+    function rgb(h,s,v){const c=v*s,x=c*(1-Math.abs((h/60)%2-1)),m=v-c;let a=h<60?[c,x,0]:h<120?[x,c,0]:h<180?[0,c,x]:h<240?[0,x,c]:h<300?[x,0,c]:[c,0,x];return a.map(z=>Math.round((z+m)*255));}
+    function hex(a){return '#'+a.map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase();}
+    function path(d,ox,oy,size){const p=new Path2D();d.path.forEach(c=>{const z=c.slice(1);if(c[0]==='M')p.moveTo(ox+z[0]*size,oy+z[1]*size);if(c[0]==='L')p.lineTo(ox+z[0]*size,oy+z[1]*size);if(c[0]==='C')p.bezierCurveTo(ox+z[0]*size,oy+z[1]*size,ox+z[2]*size,oy+z[3]*size,ox+z[4]*size,oy+z[5]*size);if(c[0]==='Z')p.closePath();});return p;}
+    function setup(canvas,w,h){const ratio=window.devicePixelRatio||1;canvas.width=Math.round(w*ratio);canvas.height=Math.round(h*ratio);canvas.style.height=h+'px';const ctx=canvas.getContext('2d');ctx.setTransform(ratio,0,0,ratio,0,0);return ctx;}
+    function drawWheel(){const w=wheel.clientWidth,h=w,t=theme(),ctx=setup(wheel,w,h),cx=w/2,cy=h/2,r=w*.31,thick=w*.13;ctx.clearRect(0,0,w,h);
+      const raster=document.createElement('canvas'),n=Math.ceil(w*(window.devicePixelRatio||1));raster.width=n;raster.height=n;const rc=raster.getContext('2d'),im=rc.createImageData(n,n),scale=n/w;for(let yy=0;yy<n;yy++)for(let xx=0;xx<n;xx++){const dx=xx+.5-n/2,dy=yy+.5-n/2,rad=Math.hypot(dx,dy)/scale,alpha=Math.max(0,Math.min(1,(rad-r+thick/2)*scale,(r+thick/2-rad)*scale));if(!alpha)continue;const hue=(Math.atan2(dy,dx)*180/Math.PI+510)%360,a=rgb(hue,1,1),i=(yy*n+xx)*4;im.data.set([...a,Math.round(alpha*255)],i);}rc.putImageData(im,0,0);ctx.drawImage(raster,0,0,w,h);
+      for(let hue=30;hue<360;hue+=60){const a=(hue-150)*Math.PI/180;ctx.strokeStyle=t.fg;ctx.globalAlpha=.65;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*(r-thick/2),cy+Math.sin(a)*(r-thick/2));ctx.lineTo(cx+Math.cos(a)*(r+thick/2),cy+Math.sin(a)*(r+thick/2));ctx.stroke();ctx.globalAlpha=1;}
+      ctx.fillStyle=t.fg;ctx.font=`14px ${t.font}`;ctx.textAlign='center';ctx.textBaseline='middle';
+      for(const d of data){const a=(d.hue-150)*Math.PI/180,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;ctx.beginPath();ctx.arc(x,y,d.name===selected?7:4.5,0,Math.PI*2);ctx.fillStyle=t.bg;ctx.fill();ctx.strokeStyle=t.fg;ctx.lineWidth=d.name===selected?2.5:1.3;ctx.stroke();ctx.fillStyle=t.fg;ctx.fillText(d.short+' '+d.hue+'°',cx+Math.cos(a)*w*.445,cy+Math.sin(a)*w*.445);}
+      const d=data.find(d=>d.name===selected);ctx.font=`500 14px ${t.font}`;ctx.fillText(d.name,cx,cy-12);ctx.font=`14px ${t.font}`;ctx.fillText('H '+d.hue+'°',cx,cy+12);
+    }
+    function drawPlot(d){const p=plots.get(d.name),w=p.canvas.clientWidth,left=43,top=12,side=w-left-12,h=top+side+44,t=theme(),ctx=setup(p.canvas,w,h);p.geo={left,top,side};
+      const raster=document.createElement('canvas');raster.width=256;raster.height=256;const rc=raster.getContext('2d'),image=rc.createImageData(256,256);
+      for(let y=0;y<256;y++)for(let x=0;x<256;x++){const a=rgb(d.hue,x/255,1-y/255),i=(y*256+x)*4;image.data.set([...a,255],i);}rc.putImageData(image,0,0);ctx.drawImage(raster,left,top,side,side);
+      const shape=path(d,left,top,side);ctx.save();ctx.beginPath();ctx.rect(left,top,side,side);ctx.clip();
+      const excluded=new Path2D();excluded.rect(left,top,side,side);excluded.addPath(shape);ctx.save();ctx.clip(excluded,'evenodd');ctx.globalAlpha=.78;ctx.fillStyle=t.bg;ctx.fillRect(left,top,side,side);ctx.globalAlpha=.18;ctx.strokeStyle=t.fg;ctx.lineWidth=1;for(let off=-side;off<2*side;off+=12){ctx.beginPath();ctx.moveTo(left+off,top);ctx.lineTo(left+off+side,top+side);ctx.stroke();}ctx.restore();ctx.restore();
+      ctx.strokeStyle=t.fg;ctx.lineWidth=1.7;ctx.stroke(shape);ctx.strokeStyle=t.line;ctx.lineWidth=1;ctx.strokeRect(left,top,side,side);ctx.fillStyle=t.fg;ctx.font=`12px ${t.font}`;ctx.textBaseline='middle';
+      for(const a of [0,.5,1]){ctx.textAlign='center';ctx.fillText(Math.round(a*100)+'',left+a*side,top+side+14);ctx.textAlign='right';ctx.fillText(Math.round((1-a)*100)+'',left-7,top+a*side);}
+      ctx.textAlign='center';ctx.fillText('Saturation (%)',left+side/2,top+side+34);ctx.save();ctx.translate(11,top+side/2);ctx.rotate(-Math.PI/2);ctx.fillText('Value (%)',0,0);ctx.restore();
+      if(selected===d.name){const x=left+point.s*side,y=top+(1-point.v)*side;ctx.strokeStyle=t.fg;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x-8,y);ctx.lineTo(x+8,y);ctx.moveTo(x,y-8);ctx.lineTo(x,y+8);ctx.stroke();ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.stroke();}
+      p.button.setAttribute('aria-pressed',String(selected===d.name));
+    }
+    function inside(d,s,v){return testContext.isPointInPath(path(d,0,0,1),s,1-v);}
+    function update(save=false){const d=data.find(d=>d.name===selected),a=rgb(d.hue,point.s,point.v);root.querySelector('.saturation').value=(point.s*100).toFixed(1);root.querySelector('.value').value=(point.v*100).toFixed(1);root.querySelector('.sample').style.background=hex(a);root.querySelector('.readout').textContent=`${d.name} · H ${d.hue}° · S ${(point.s*100).toFixed(1)}% · V ${(point.v*100).toFixed(1)}% · RGB ${a.join(', ')} · ${hex(a)} · ${inside(d,point.s,point.v)?'inside':'outside'} traced area`;drawWheel();data.forEach(drawPlot);if(save&&window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{color:selected,hue:d.hue,s:point.s,v:point.v},privateContent:null}).catch(()=>{});}
+    data.forEach(d=>{const panel=document.createElement('section');panel.className='plot';const title=document.createElement('div');title.className='plot-title';const button=document.createElement('button');button.type='button';button.className='btn';button.textContent=`${d.name} · ${d.hue}°`;button.setAttribute('aria-pressed',String(selected===d.name));button.addEventListener('click',()=>{selected=d.name;update(true);});title.append(button);const values=document.createElement('div');values.className='data-row text-small tabular-nums';values.textContent=`Pure RGB ${d.rgb.join(', ')} · ${d.hex}`;const canvas=document.createElement('canvas');canvas.setAttribute('role','img');canvas.setAttribute('aria-label',`${d.name} saturation-value square. The outlined book area is approximate. X is saturation zero to 100 percent. Y is value 100 to zero percent.`);const bounds=document.createElement('div');bounds.className='text-small tabular-nums';bounds.textContent=`Bounds: S ${d.bounds.s[0]}–${d.bounds.s[1]}% · V ${d.bounds.v[0]}–${d.bounds.v[1]}%`;panel.append(title,values,canvas,bounds);grid.append(panel);plots.set(d.name,{canvas,button});
+      function pick(e,save){const g=plots.get(d.name).geo,b=canvas.getBoundingClientRect(),s=(e.clientX-b.left-g.left)/g.side,v=1-(e.clientY-b.top-g.top)/g.side;if(s<0||s>1||v<0||v>1)return;selected=d.name;point={s,v};update(save);}
+      canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);pick(e,true);});canvas.addEventListener('pointermove',e=>{if(e.buttons)pick(e,false);});canvas.addEventListener('pointerup',()=>update(true));
+    });
+    wheel.addEventListener('click',e=>{const b=wheel.getBoundingClientRect(),a=Math.atan2(e.clientY-b.top-b.width/2,e.clientX-b.left-b.width/2)*180/Math.PI,h=(a+150+360)%360;selected=data.reduce((p,d)=>Math.abs(((d.hue-h+540)%360)-180)<Math.abs(((p.hue-h+540)%360)-180)?d:p).name;update(true);});
+    root.querySelector('.saturation').addEventListener('change',e=>{point.s=Math.max(0,Math.min(1,Number(e.target.value)/100));update(true);});
+    root.querySelector('.value').addEventListener('change',e=>{point.v=Math.max(0,Math.min(1,Number(e.target.value)/100));update(true);});
+    const ro=new ResizeObserver(()=>update());ro.observe(root);window.addEventListener('openai:set_globals',e=>{const st=e.detail?.globals?.widgetState?.modelContent;if(st&&data.some(d=>d.name===st.color)){selected=st.color;point={s:st.s??.5,v:st.v??.7};update();}});
+    update();
+  })();
+  </script>
+</div>
