@@ -1,0 +1,8 @@
+{
+  "id": "example-addon",
+  "name": "Example add-on",
+  "version": "1.0.0",
+  "apiVersion": 1,
+  "scripts": ["index.js"],
+  "styles": ["style.css"]
+}
