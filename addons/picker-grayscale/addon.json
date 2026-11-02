@@ -1,0 +1,14 @@
+{
+  "id": "picker-grayscale",
+  "name": "Picker grayscale",
+  "version": "1.0.3",
+  "apiVersion": 1,
+  "scripts": [
+    "filter.js",
+    "controls.js",
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}
