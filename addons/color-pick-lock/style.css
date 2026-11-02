@@ -1,0 +1,3 @@
+[data-shade-addon="color-pick-lock"]{display:inline-flex}
+[data-shade-addon="color-pick-lock"] button{min-width:36px;padding:6px}
+[data-shade-addon="color-pick-lock"] button[aria-pressed=true]{border-color:var(--accent);background:#2c3935}
