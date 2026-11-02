@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "scripts": {
+    "build:html": "node build-html.cjs",
+    "test:html": "node tests/html-regression.cjs",
+    "test:v2": "node tests/html-v2.cjs",
+    "test:picker": "node tests/html-picker.cjs",
+    "test:part1": "node tests/html-part1.cjs",
+    "test:new-ball": "node tests/html-new-ball.cjs",
+    "test:addons": "node tests/html-addons.cjs",
+    "test:harmonies": "node addons/wheel-harmonies/tests/harmonies.cjs",
+    "test": "npm run test:html && npm run test:v2 && npm run test:picker && npm run test:part1 && npm run test:new-ball && npm run test:addons && npm run test:harmonies && npm run test:surfaces && npm run test:comparison && npm run test:swap && npm run test:picker-grayscale && npm run test:grayscale && npm run test:tool-panel && npm run test:filters && npm run test:blend-math && npm run test:background && npm run test:filter-selection && npm run test:layout && npm run test:hue-limits && npm run test:pick-lock && npm run test:tutorial",
+    "test:surfaces": "node addons/surface-tools/tests/surfaces.cjs",
+    "test:comparison": "node addons/ball-comparison/tests/comparison.cjs",
+    "test:swap": "node addons/wheel-position-swap/tests/swap.cjs",
+    "test:picker-grayscale": "node addons/picker-grayscale/tests/grayscale.cjs",
+    "test:grayscale": "node tests/html-grayscale.cjs",
+    "test:tool-panel": "node addons/tool-panel/tests/panel.cjs",
+    "test:filters": "node addons/blend-filters/tests/filters.cjs",
+    "test:blend-math": "node addons/blend-filters/tests/math.cjs && node addons/blend-filters/tests/book-examples.cjs",
+    "test:background": "node addons/ball-background/tests/background.cjs",
+    "test:filter-selection": "node addons/blend-filters/tests/selection.cjs",
+    "test:layout": "node addons/studio-layout/tests/layout.cjs",
+    "test:hue-limits": "node addons/hue-color-limits/tests/limits.cjs",
+    "test:pick-lock": "node addons/color-pick-lock/tests/locks.cjs",
+    "test:tutorial": "node addons/guided-tutorial/tests/tutorial.cjs"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.9",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^29.1.1"
+  }
+}
