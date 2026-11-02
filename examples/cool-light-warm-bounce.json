@@ -1,0 +1,54 @@
+{
+  "schema": "shadelab.formula",
+  "version": 1,
+  "name": "Cool light with warm bounce",
+  "baseName": "Base",
+  "roles": [
+    {
+      "id": "highlight",
+      "name": "Highlight",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (133.84615) * t",
+        "S": "S + (-100) * t",
+        "L": "L + (2.5490196) * t"
+      }
+    },
+    {
+      "id": "shadow",
+      "name": "Shadow",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (-13.050398) * t",
+        "S": "S + (-23.684211) * t",
+        "L": "L + (-12.352941) * t"
+      }
+    },
+    {
+      "id": "rim",
+      "name": "Shadow rim",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (27.179487) * t",
+        "S": "S + (-22.857143) * t",
+        "L": "L + (-24.901961) * t"
+      }
+    },
+    {
+      "id": "bounce",
+      "name": "Bounce light",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (119.66434) * t",
+        "S": "S + (-24.657534) * t",
+        "L": "L + (-11.764706) * t"
+      }
+    }
+  ],
+  "mode": "rim",
+  "softness": 0
+}

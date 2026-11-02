@@ -1,0 +1,55 @@
+{
+  "schema": "shadelab.formula",
+  "version": 1,
+  "name": "CMYK shadow experiment",
+  "baseName": "Base",
+  "roles": [
+    {
+      "id": "highlight",
+      "name": "Highlight",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (15) * t",
+        "S": "S + (5) * t",
+        "L": "L + (8) * t"
+      }
+    },
+    {
+      "id": "shadow",
+      "name": "Shadow",
+      "source": "base",
+      "model": "CMYK",
+      "expressions": {
+        "C": "C + 5*t",
+        "M": "M - 3*t",
+        "Y": "Y + 2*t",
+        "K": "K + 10*t"
+      }
+    },
+    {
+      "id": "rim",
+      "name": "Shadow rim",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (-30) * t",
+        "S": "S + (-8) * t",
+        "L": "L + (-7) * t"
+      }
+    },
+    {
+      "id": "bounce",
+      "name": "Bounce light",
+      "source": "base",
+      "model": "HSL",
+      "expressions": {
+        "H": "H + (-65) * t",
+        "S": "S + (-20) * t",
+        "L": "L + (7) * t"
+      }
+    }
+  ],
+  "mode": "cel",
+  "softness": 0
+}

@@ -1,0 +1,266 @@
+{
+  "schema": "shadelab.project",
+  "version": 1,
+  "name": "Shading studies",
+  "balls": [
+    {
+      "id": "c3c277e50798",
+      "name": "Carmine study",
+      "baseName": "Base",
+      "base": [
+        354,
+        75,
+        45
+      ],
+      "mode": "cel",
+      "softness": 0,
+      "strength": 1,
+      "roles": [
+        {
+          "id": "highlight",
+          "name": "Highlight",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (15) * t",
+            "S": "S + (5) * t",
+            "L": "L + (8) * t"
+          }
+        },
+        {
+          "id": "shadow",
+          "name": "Shadow",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-8) * t",
+            "S": "S + (-10) * t",
+            "L": "L + (-10) * t"
+          }
+        },
+        {
+          "id": "rim",
+          "name": "Shadow rim",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-30) * t",
+            "S": "S + (-8) * t",
+            "L": "L + (-7) * t"
+          }
+        },
+        {
+          "id": "bounce",
+          "name": "Bounce light",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-65) * t",
+            "S": "S + (-20) * t",
+            "L": "L + (7) * t"
+          }
+        }
+      ]
+    },
+    {
+      "id": "7acfa507f447",
+      "name": "Midnight study",
+      "baseName": "Base",
+      "base": [
+        211,
+        48,
+        18
+      ],
+      "mode": "cel",
+      "softness": 0,
+      "strength": 1,
+      "roles": [
+        {
+          "id": "highlight",
+          "name": "Highlight",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (15) * t",
+            "S": "S + (5) * t",
+            "L": "L + (8) * t"
+          }
+        },
+        {
+          "id": "shadow",
+          "name": "Shadow",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-8) * t",
+            "S": "S + (-10) * t",
+            "L": "L + (-10) * t"
+          }
+        },
+        {
+          "id": "rim",
+          "name": "Shadow rim",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-30) * t",
+            "S": "S + (-8) * t",
+            "L": "L + (-7) * t"
+          }
+        },
+        {
+          "id": "bounce",
+          "name": "Bounce light",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-65) * t",
+            "S": "S + (-20) * t",
+            "L": "L + (7) * t"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2e356fb747c",
+      "name": "Cool light \u00b7 warm bounce",
+      "baseName": "Base",
+      "base": [
+        226.1538461538461,
+        100.0,
+        97.45098039215686
+      ],
+      "mode": "rim",
+      "softness": 0,
+      "strength": 1,
+      "roles": [
+        {
+          "id": "highlight",
+          "name": "Highlight",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (133.84615) * t",
+            "S": "S + (-100) * t",
+            "L": "L + (2.5490196) * t"
+          }
+        },
+        {
+          "id": "shadow",
+          "name": "Shadow",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-13.050398) * t",
+            "S": "S + (-23.684211) * t",
+            "L": "L + (-12.352941) * t"
+          }
+        },
+        {
+          "id": "rim",
+          "name": "Shadow rim",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (27.179487) * t",
+            "S": "S + (-22.857143) * t",
+            "L": "L + (-24.901961) * t"
+          }
+        },
+        {
+          "id": "bounce",
+          "name": "Bounce light",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (119.66434) * t",
+            "S": "S + (-24.657534) * t",
+            "L": "L + (-11.764706) * t"
+          }
+        }
+      ]
+    },
+    {
+      "id": "120d69d0521e",
+      "name": "Warm light \u00b7 cool bounce",
+      "baseName": "Base",
+      "base": [
+        31.764705882352935,
+        100.0,
+        96.66666666666667
+      ],
+      "mode": "rim",
+      "softness": 0,
+      "strength": 1,
+      "roles": [
+        {
+          "id": "highlight",
+          "name": "Highlight",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-31.764706) * t",
+            "S": "S + (-100) * t",
+            "L": "L + (3.3333333) * t"
+          }
+        },
+        {
+          "id": "shadow",
+          "name": "Shadow",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-51.149321) * t",
+            "S": "S + (-25.287356) * t",
+            "L": "L + (-13.72549) * t"
+          }
+        },
+        {
+          "id": "rim",
+          "name": "Shadow rim",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-85.69729) * t",
+            "S": "S + (-36.879433) * t",
+            "L": "L + (-24.313725) * t"
+          }
+        },
+        {
+          "id": "bounce",
+          "name": "Bounce light",
+          "source": "base",
+          "model": "HSL",
+          "expressions": {
+            "H": "H + (-178.20538) * t",
+            "S": "S + (-25.316456) * t",
+            "L": "L + (-12.156863) * t"
+          }
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    0.5,
+    1,
+    2,
+    3
+  ],
+  "samples": [
+    [
+      213.10344827586206,
+      76.31578947368425,
+      85.09803921568628
+    ],
+    [
+      253.33333333333334,
+      77.14285714285715,
+      72.54901960784314
+    ],
+    [
+      345.8181818181818,
+      75.34246575342469,
+      85.68627450980392
+    ]
+  ]
+}
