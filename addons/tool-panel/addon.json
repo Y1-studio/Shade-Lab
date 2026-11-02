@@ -1,0 +1,8 @@
+{
+  "id": "tool-panel",
+  "name": "Collapsible tools",
+  "version": "1.0.0",
+  "apiVersion": 1,
+  "scripts": ["index.js"],
+  "styles": ["style.css"]
+}
