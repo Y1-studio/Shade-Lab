@@ -1,0 +1,21 @@
+{
+  "id": "blend-filters",
+  "name": "Filter Lab",
+  "version": "1.3.3",
+  "apiVersion": 1,
+  "scripts": [
+    "math.js",
+    "descriptions.js",
+    "examples.js",
+    "engine.js",
+    "split.js",
+    "arrows.js",
+    "preview.js",
+    "picker.js",
+    "workbench.js",
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}
