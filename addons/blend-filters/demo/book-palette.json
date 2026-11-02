@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "palette": [
+    {
+      "id": "hair",
+      "label": "Hair",
+      "hex": "#ECDAA8",
+      "printedPage": 14,
+      "pixelBox": [
+        1484,
+        386,
+        1493,
+        395
+      ],
+      "method": "median RGB of scan region"
+    },
+    {
+      "id": "skin",
+      "label": "Skin",
+      "hex": "#FEEDD9",
+      "printedPage": 14,
+      "pixelBox": [
+        1180,
+        520,
+        1205,
+        542
+      ],
+      "method": "median RGB of scan region"
+    },
+    {
+      "id": "mouth",
+      "label": "Mouth",
+      "hex": "#FFB2A2",
+      "printedPage": 14,
+      "pixelBox": [
+        1281,
+        525,
+        1290,
+        534
+      ],
+      "method": "median RGB of scan region"
+    },
+    {
+      "id": "cheek",
+      "label": "Cheek",
+      "hex": "#FED0BA",
+      "printedPage": 14,
+      "pixelBox": [
+        1370,
+        492,
+        1380,
+        502
+      ],
+      "method": "median RGB of scan region"
+    },
+    {
+      "id": "ink",
+      "label": "Ink",
+      "hex": "#000000",
+      "printedPage": 14,
+      "pixelBox": [
+        1336,
+        401,
+        1345,
+        410
+      ],
+      "method": "median RGB of scan region"
+    },
+    {
+      "id": "highlight",
+      "label": "Highlight",
+      "hex": "#FBF3CE",
+      "printedPage": 14,
+      "pixelBox": [
+        1410,
+        259,
+        1425,
+        272
+      ],
+      "method": "median RGB of scan region"
+    }
+  ],
+  "appliedColorPresets": {
+    "multiply": [
+      {
+        "hex": "#927E9F",
+        "printedPage": 14,
+        "pixelBox": [
+          966,
+          631,
+          975,
+          640
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "color-burn": [
+      {
+        "hex": "#FF965F",
+        "printedPage": 14,
+        "pixelBox": [
+          225,
+          1373,
+          234,
+          1382
+        ],
+        "method": "median RGB of scan region"
+      },
+      {
+        "hex": "#695FFE",
+        "printedPage": 14,
+        "pixelBox": [
+          264,
+          1417,
+          273,
+          1426
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "screen": [
+      {
+        "hex": "#F1DE97",
+        "printedPage": 14,
+        "pixelBox": [
+          992,
+          1420,
+          1001,
+          1429
+        ],
+        "method": "median RGB of scan region"
+      },
+      {
+        "hex": "#9AADF6",
+        "printedPage": 14,
+        "pixelBox": [
+          1030,
+          1457,
+          1039,
+          1466
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "add": [
+      {
+        "hex": "#FEC993",
+        "printedPage": 14,
+        "pixelBox": [
+          225,
+          2108,
+          234,
+          2117
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "overlay": [
+      {
+        "hex": "#FF7AB1",
+        "printedPage": 14,
+        "pixelBox": [
+          990,
+          2107,
+          999,
+          2116
+        ],
+        "method": "median RGB of scan region"
+      },
+      {
+        "hex": "#97A0F9",
+        "printedPage": 14,
+        "pixelBox": [
+          1031,
+          2143,
+          1040,
+          2152
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "difference": [
+      {
+        "hex": "#FFFFFF",
+        "printedPage": 15,
+        "pixelBox": [
+          198,
+          620,
+          207,
+          629
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "color": [
+      {
+        "hex": "#727EEE",
+        "printedPage": 15,
+        "pixelBox": [
+          972,
+          620,
+          981,
+          629
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "subtract": [
+      {
+        "hex": "#EED9AA",
+        "printedPage": 15,
+        "pixelBox": [
+          198,
+          1273,
+          207,
+          1282
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "hard-light": [
+      {
+        "hex": "#FF7F42",
+        "printedPage": 15,
+        "pixelBox": [
+          972,
+          1273,
+          981,
+          1282
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "saturation": [
+      {
+        "hex": "#000000",
+        "printedPage": 15,
+        "pixelBox": [
+          198,
+          2124,
+          207,
+          2133
+        ],
+        "method": "median RGB of scan region"
+      }
+    ],
+    "brightness": [
+      {
+        "hex": "#808080",
+        "method": "chosen midpoint for solid-color demo; book shows a grayscale gradient, not this single color"
+      }
+    ],
+    "add-glow-candidate": [
+      {
+        "hex": "#FEC993",
+        "printedPage": 14,
+        "pixelBox": [
+          225,
+          2108,
+          234,
+          2117
+        ],
+        "method": "median RGB of scan region"
+      }
+    ]
+  },
+  "note": "Approximate colors sampled from printed scans; not the author original RGB values. Before/after bands repeat every color across both halves. Brightness uses a solid midpoint instead of the book gradient. Add (Glow) is provisional.",
+  "source": "Printed pages 14-15 / PDF pages 15-16, Naoto Date, The Manga Artist\u2019s Guide to Digital Color & Lighting"
+}

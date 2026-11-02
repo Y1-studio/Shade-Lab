@@ -1,0 +1,1122 @@
+{
+  "version": 1,
+  "note": "Approximate colors sampled from printed scans; not the author original RGB values. Before/after bands repeat every color across both halves. Brightness uses a solid midpoint instead of the book gradient. Add (Glow) is provisional.",
+  "examples": [
+    {
+      "mode": "multiply",
+      "label": "Multiply",
+      "source": "#927E9F",
+      "opacity": 1,
+      "explanation": "Darkens colors by multiplying their RGB values. Useful for shadows.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#876C69"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#917587"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#925865"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#916774"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#907880"
+        }
+      ]
+    },
+    {
+      "mode": "color-burn",
+      "label": "Color burn",
+      "source": "#FF965F",
+      "opacity": 1,
+      "explanation": "Darkens and strengthens contrast. Deep colors can clip to black.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#ECC015"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FEE099"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FF7C05"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FEAF46"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FBEB7B"
+        }
+      ]
+    },
+    {
+      "mode": "screen",
+      "label": "Screen",
+      "source": "#F1DE97",
+      "opacity": 1,
+      "explanation": "Brightens by combining inverted colors. Useful for gentle light.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FEFADC"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFDF0"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFF5D9"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFF9E3"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#F1DE97"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFDEB"
+        }
+      ]
+    },
+    {
+      "mode": "add",
+      "label": "Add",
+      "source": "#FEC993",
+      "opacity": 1,
+      "explanation": "Adds the paint color to the base. Bright channels can clip to white.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FEC993"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "mode": "overlay",
+      "label": "Overlay",
+      "source": "#FF7AB1",
+      "opacity": 1,
+      "explanation": "Combines Multiply and Screen based on the base color. Often increases contrast.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFD8CA"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFECE8"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFAFC6"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFCED5"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFF2E1"
+        }
+      ]
+    },
+    {
+      "mode": "difference",
+      "label": "Difference",
+      "source": "#FFFFFF",
+      "opacity": 1,
+      "explanation": "Shows the absolute RGB difference. White paint inverts the base.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#132557"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#011226"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#004D5D"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#012F45"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#040C31"
+        }
+      ]
+    },
+    {
+      "mode": "color",
+      "label": "Color",
+      "source": "#727EEE",
+      "opacity": 1,
+      "explanation": "Uses the paint hue and color intensity while preserving base luminosity.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#D2D7FF"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#EDEFFF"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#BCC3FF"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#D4D8FF"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#EFF0FF"
+        }
+      ]
+    },
+    {
+      "mode": "subtract",
+      "label": "Subtract",
+      "source": "#EED9AA",
+      "opacity": 1,
+      "explanation": "Subtracts paint RGB from base RGB. Channels cannot fall below black.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000100"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#10142F"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#110000"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#100010"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#0D1A24"
+        }
+      ]
+    },
+    {
+      "mode": "hard-light",
+      "label": "Hard light",
+      "source": "#FF7F42",
+      "opacity": 1,
+      "explanation": "Darkens or brightens based on the paint channels, for strong contrast.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFD957"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFEC70"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFB154"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFCF60"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FF0000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFF26B"
+        }
+      ]
+    },
+    {
+      "mode": "saturation",
+      "label": "Saturation",
+      "source": "#000000",
+      "opacity": 1,
+      "explanation": "Changes color intensity while preserving base hue and luminosity. Gray paint desaturates.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#DADADA"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#F0F0F0"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#C7C7C7"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#DBDBDB"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#000000"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#F1F1F1"
+        }
+      ]
+    },
+    {
+      "mode": "brightness",
+      "label": "Brightness",
+      "source": "#808080",
+      "opacity": 1,
+      "explanation": "Uses paint brightness while keeping the base hue. Colors can compress at range limits.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#92804E"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#8E7D69"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#B86B5B"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#A3755F"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#808080"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#8A825D"
+        }
+      ]
+    },
+    {
+      "mode": "add-glow-candidate",
+      "label": "Add (Glow) candidate",
+      "source": "#FEC993",
+      "opacity": 1,
+      "explanation": "Provisional additive model. Its partial-opacity behavior still needs CSP tests.",
+      "colors": [
+        {
+          "id": "hair",
+          "label": "Hair",
+          "hex": "#ECDAA8",
+          "printedPage": 14,
+          "pixelBox": [
+            1484,
+            386,
+            1493,
+            395
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "skin",
+          "label": "Skin",
+          "hex": "#FEEDD9",
+          "printedPage": 14,
+          "pixelBox": [
+            1180,
+            520,
+            1205,
+            542
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "mouth",
+          "label": "Mouth",
+          "hex": "#FFB2A2",
+          "printedPage": 14,
+          "pixelBox": [
+            1281,
+            525,
+            1290,
+            534
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "cheek",
+          "label": "Cheek",
+          "hex": "#FED0BA",
+          "printedPage": 14,
+          "pixelBox": [
+            1370,
+            492,
+            1380,
+            502
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        },
+        {
+          "id": "ink",
+          "label": "Ink",
+          "hex": "#000000",
+          "printedPage": 14,
+          "pixelBox": [
+            1336,
+            401,
+            1345,
+            410
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FEC993"
+        },
+        {
+          "id": "highlight",
+          "label": "Highlight",
+          "hex": "#FBF3CE",
+          "printedPage": 14,
+          "pixelBox": [
+            1410,
+            259,
+            1425,
+            272
+          ],
+          "method": "median RGB of scan region",
+          "result": "#FFFFFF"
+        }
+      ]
+    }
+  ]
+}

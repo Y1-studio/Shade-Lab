@@ -1,0 +1,647 @@
+{
+  "version": 1,
+  "baseOpaque": true,
+  "colorSpace": "encoded RGB",
+  "sheets": [
+    {
+      "id": "blue-over-gray",
+      "base": "#747474",
+      "source": "#0000FF",
+      "opacity": 1,
+      "tests": [
+        {
+          "id": "1-01",
+          "mode": "multiply",
+          "label": "Multiply",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#000074",
+          "provisional": false
+        },
+        {
+          "id": "1-02",
+          "mode": "color-burn",
+          "label": "Color burn",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#000074",
+          "provisional": false
+        },
+        {
+          "id": "1-03",
+          "mode": "screen",
+          "label": "Screen",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#7474FF",
+          "provisional": false
+        },
+        {
+          "id": "1-04",
+          "mode": "add",
+          "label": "Add",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#7474FF",
+          "provisional": false
+        },
+        {
+          "id": "1-05",
+          "mode": "overlay",
+          "label": "Overlay",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#0000E8",
+          "provisional": false
+        },
+        {
+          "id": "1-06",
+          "mode": "difference",
+          "label": "Difference",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#74748B",
+          "provisional": false
+        },
+        {
+          "id": "1-07",
+          "mode": "color",
+          "label": "Color",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#6363FF",
+          "provisional": false
+        },
+        {
+          "id": "1-08",
+          "mode": "subtract",
+          "label": "Subtract",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#747400",
+          "provisional": false
+        },
+        {
+          "id": "1-09",
+          "mode": "hard-light",
+          "label": "Hard light",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#0000FF",
+          "provisional": false
+        },
+        {
+          "id": "1-10",
+          "mode": "saturation",
+          "label": "Saturation",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#747474",
+          "provisional": false
+        },
+        {
+          "id": "1-11",
+          "mode": "brightness",
+          "label": "Brightness",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#1C1C1C",
+          "provisional": false
+        },
+        {
+          "id": "1-12",
+          "mode": "add-glow-candidate",
+          "label": "Add (Glow) candidate",
+          "base": "#747474",
+          "source": "#0000FF",
+          "opacity": 1,
+          "result": "#7474FF",
+          "provisional": true
+        }
+      ]
+    },
+    {
+      "id": "gray-over-orange",
+      "base": "#C45A32",
+      "source": "#808080",
+      "opacity": 1,
+      "tests": [
+        {
+          "id": "2-01",
+          "mode": "multiply",
+          "label": "Multiply",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#622D19",
+          "provisional": false
+        },
+        {
+          "id": "2-02",
+          "mode": "color-burn",
+          "label": "Color burn",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#890000",
+          "provisional": false
+        },
+        {
+          "id": "2-03",
+          "mode": "screen",
+          "label": "Screen",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#E2AD99",
+          "provisional": false
+        },
+        {
+          "id": "2-04",
+          "mode": "add",
+          "label": "Add",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#FFDAB2",
+          "provisional": false
+        },
+        {
+          "id": "2-05",
+          "mode": "overlay",
+          "label": "Overlay",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#C45A32",
+          "provisional": false
+        },
+        {
+          "id": "2-06",
+          "mode": "difference",
+          "label": "Difference",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#44264E",
+          "provisional": false
+        },
+        {
+          "id": "2-07",
+          "mode": "color",
+          "label": "Color",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#757575",
+          "provisional": false
+        },
+        {
+          "id": "2-08",
+          "mode": "subtract",
+          "label": "Subtract",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#440000",
+          "provisional": false
+        },
+        {
+          "id": "2-09",
+          "mode": "hard-light",
+          "label": "Hard light",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#C45B33",
+          "provisional": false
+        },
+        {
+          "id": "2-10",
+          "mode": "saturation",
+          "label": "Saturation",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#757575",
+          "provisional": false
+        },
+        {
+          "id": "2-11",
+          "mode": "brightness",
+          "label": "Brightness",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#CF653D",
+          "provisional": false
+        },
+        {
+          "id": "2-12",
+          "mode": "add-glow-candidate",
+          "label": "Add (Glow) candidate",
+          "base": "#C45A32",
+          "source": "#808080",
+          "opacity": 1,
+          "result": "#FFDAB2",
+          "provisional": true
+        }
+      ]
+    },
+    {
+      "id": "light-gray-over-blue",
+      "base": "#397FA6",
+      "source": "#B3B3B3",
+      "opacity": 1,
+      "tests": [
+        {
+          "id": "3-01",
+          "mode": "multiply",
+          "label": "Multiply",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#285975",
+          "provisional": false
+        },
+        {
+          "id": "3-02",
+          "mode": "color-burn",
+          "label": "Color burn",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#004980",
+          "provisional": false
+        },
+        {
+          "id": "3-03",
+          "mode": "screen",
+          "label": "Screen",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#C4D9E4",
+          "provisional": false
+        },
+        {
+          "id": "3-04",
+          "mode": "add",
+          "label": "Add",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#ECFFFF",
+          "provisional": false
+        },
+        {
+          "id": "3-05",
+          "mode": "overlay",
+          "label": "Overlay",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#50B2CA",
+          "provisional": false
+        },
+        {
+          "id": "3-06",
+          "mode": "difference",
+          "label": "Difference",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#7A340D",
+          "provisional": false
+        },
+        {
+          "id": "3-07",
+          "mode": "color",
+          "label": "Color",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#6E6E6E",
+          "provisional": false
+        },
+        {
+          "id": "3-08",
+          "mode": "subtract",
+          "label": "Subtract",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#000000",
+          "provisional": false
+        },
+        {
+          "id": "3-09",
+          "mode": "hard-light",
+          "label": "Hard light",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#89B3CA",
+          "provisional": false
+        },
+        {
+          "id": "3-10",
+          "mode": "saturation",
+          "label": "Saturation",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#6E6E6E",
+          "provisional": false
+        },
+        {
+          "id": "3-11",
+          "mode": "brightness",
+          "label": "Brightness",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#7EC4EB",
+          "provisional": false
+        },
+        {
+          "id": "3-12",
+          "mode": "add-glow-candidate",
+          "label": "Add (Glow) candidate",
+          "base": "#397FA6",
+          "source": "#B3B3B3",
+          "opacity": 1,
+          "result": "#ECFFFF",
+          "provisional": true
+        }
+      ]
+    },
+    {
+      "id": "green-over-purple",
+      "base": "#BA6EC8",
+      "source": "#58C987",
+      "opacity": 1,
+      "tests": [
+        {
+          "id": "4-01",
+          "mode": "multiply",
+          "label": "Multiply",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#40576A",
+          "provisional": false
+        },
+        {
+          "id": "4-02",
+          "mode": "color-burn",
+          "label": "Color burn",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#374797",
+          "provisional": false
+        },
+        {
+          "id": "4-03",
+          "mode": "screen",
+          "label": "Screen",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#D2E0E5",
+          "provisional": false
+        },
+        {
+          "id": "4-04",
+          "mode": "add",
+          "label": "Add",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#FFFFFF",
+          "provisional": false
+        },
+        {
+          "id": "4-05",
+          "mode": "overlay",
+          "label": "Overlay",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#A5ADCB",
+          "provisional": false
+        },
+        {
+          "id": "4-06",
+          "mode": "difference",
+          "label": "Difference",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#625B41",
+          "provisional": false
+        },
+        {
+          "id": "4-07",
+          "mode": "color",
+          "label": "Color",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#47B876",
+          "provisional": false
+        },
+        {
+          "id": "4-08",
+          "mode": "subtract",
+          "label": "Subtract",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#620041",
+          "provisional": false
+        },
+        {
+          "id": "4-09",
+          "mode": "hard-light",
+          "label": "Hard light",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#80C2CB",
+          "provisional": false
+        },
+        {
+          "id": "4-10",
+          "mode": "saturation",
+          "label": "Saturation",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#C566D7",
+          "provisional": false
+        },
+        {
+          "id": "4-11",
+          "mode": "brightness",
+          "label": "Brightness",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#CB7FD9",
+          "provisional": false
+        },
+        {
+          "id": "4-12",
+          "mode": "add-glow-candidate",
+          "label": "Add (Glow) candidate",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 1,
+          "result": "#FFFFFF",
+          "provisional": true
+        }
+      ]
+    },
+    {
+      "id": "green-over-purple-50",
+      "base": "#BA6EC8",
+      "source": "#58C987",
+      "opacity": 0.5,
+      "tests": [
+        {
+          "id": "5-01",
+          "mode": "multiply",
+          "label": "Multiply",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#7D6299",
+          "provisional": false
+        },
+        {
+          "id": "5-02",
+          "mode": "color-burn",
+          "label": "Color burn",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#795BB0",
+          "provisional": false
+        },
+        {
+          "id": "5-03",
+          "mode": "screen",
+          "label": "Screen",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#C6A7D7",
+          "provisional": false
+        },
+        {
+          "id": "5-04",
+          "mode": "add",
+          "label": "Add",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#DDB7E3",
+          "provisional": false
+        },
+        {
+          "id": "5-05",
+          "mode": "overlay",
+          "label": "Overlay",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#AF8ECA",
+          "provisional": false
+        },
+        {
+          "id": "5-06",
+          "mode": "difference",
+          "label": "Difference",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#8E6584",
+          "provisional": false
+        },
+        {
+          "id": "5-07",
+          "mode": "color",
+          "label": "Color",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#80939F",
+          "provisional": false
+        },
+        {
+          "id": "5-08",
+          "mode": "subtract",
+          "label": "Subtract",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#8E3784",
+          "provisional": false
+        },
+        {
+          "id": "5-09",
+          "mode": "hard-light",
+          "label": "Hard light",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#9D98CA",
+          "provisional": false
+        },
+        {
+          "id": "5-10",
+          "mode": "saturation",
+          "label": "Saturation",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#C06ACF",
+          "provisional": false
+        },
+        {
+          "id": "5-11",
+          "mode": "brightness",
+          "label": "Brightness",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#C377D1",
+          "provisional": false
+        },
+        {
+          "id": "5-12",
+          "mode": "add-glow-candidate",
+          "label": "Add (Glow) candidate",
+          "base": "#BA6EC8",
+          "source": "#58C987",
+          "opacity": 0.5,
+          "result": "#E6D3FF",
+          "provisional": true
+        }
+      ]
+    }
+  ]
+}
