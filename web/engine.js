@@ -168,8 +168,11 @@ function validateDocument(data){
 }
 function trianglePoint([h,s,l],left=99,top=62,width=149,height=196){return[left+width*(1-Math.abs(2*l/100-1))*s/100,top+height*(1-l/100)];}
 function triangleColor(x,y,h,left=99,top=62,width=149,height=196){const l=clamp((1-(y-top)/height)*100),max=1-Math.abs(2*l/100-1),s=max>1e-8?clamp((x-left)/width/max*100):0;return[wrap(h),s,l];}
-function squarePoint([h,s,l]){return[84+152*s/100,84+152*(1-l/100)];}
-function squareColor(x,y,h){return[wrap(h),clamp((x-84)/152*100),clamp((1-(y-84)/152)*100)];}
+// The CSP square is HSV; recipes and saved colors remain HSL.
+function hslHsv([h,s,l]){s=clamp(s)/100;l=clamp(l)/100;const v=l+s*Math.min(l,1-l);return[wrap(h),v>0?clamp(2*(1-l/v)*100):s*100,v*100];}
+function hsvHsl([h,s,v]){s=clamp(s)/100;v=clamp(v)/100;const l=v*(1-s/2);return[wrap(h),l>0&&l<1?clamp((v-l)/Math.min(l,1-l)*100):l===0?s*100:0,l*100];}
+function squarePoint(color){const [,s,v]=hslHsv(color);return[84+152*s/100,84+152*(1-v/100)];}
+function squareColor(x,y,h){return hsvHsl([h,(x-84)/152*100,(1-(y-84)/152)*100]);}
 function pickerSurface(ball,shape){if(ball)for(const extension of extensions.values()){const view=extension.pickerSurface?.(ball,shape);if(view)return view;}return null;}
 function pickerEditView(ball){for(const [,extension]of ordered('edit')){const view=extension.pickerEditView?.(ball);if(view)return view;}return{ball,label:''};}
 function pickerPoint(color,shape='triangle',ball){const view=pickerSurface(ball,shape);return view?view.point(color):shape==='square'?squarePoint(color):trianglePoint(color);}
@@ -194,7 +197,7 @@ function moveRecipeColor(ball,id,kind,target,free=false,shape='triangle'){
   if(fraction<1e-9)return;
   for(const [key,color]of Object.entries(before)){const [x,y]=pickerPoint(color,shape);next[key]=pickerColor(x+dx*fraction,y+dy*fraction,color[0],shape);}
  }
- fitRecipeColors(ball,next);
+ fitRecipeColors(ball,next,shape==='square');
 }
 function fitRecipeColors(ball,next,precise=false){
  const trial=clone(ball);
@@ -229,6 +232,9 @@ function pickerFree(ball,kind,shape,fallback){for(const [,extension]of ordered('
 function movePickerColor(ball,id,kind,target,free=false,shape='triangle',point,displaySurface=true,origin){
  free=pickerFree(ball,kind,shape,free);
  const view=displaySurface&&pickerSurface(ball,shape);let interpolate,display;
+ if(kind==='plane'&&shape==='square'&&!view){
+  interpolate=(a,b,t)=>{const p=squarePoint(a),q=squarePoint(b);return squareColor(p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t,a[0]);};
+ }
  if(view&&kind==='plane'){
   display={id:view.id,point:point?[...point]:view.point(target)};
   if(!free){
@@ -248,6 +254,6 @@ const wheelAngle=hue=>(hue-150)*Math.PI/180;
 const wheelPoint=(hue,radius=142)=>[160+Math.cos(wheelAngle(hue))*radius,160+Math.sin(wheelAngle(hue))*radius];
 const wheelHue=(x,y)=>wrap(Math.atan2(y-160,x-160)*180/Math.PI+150);
 const api={wheelAngle,wheelPoint,wheelHue,CHANNELS,LIMITS,clamp,wrap,clone,uid,hslRgb,rgbHsl,hexHsl,toHex,grayscaleByte,grayscaleHex,values,fromModel,evaluate,resolve,defaultBall,defaultProject,roleName,lockOffsets,editColor,sampleColor,setRule,difference,measured,fitMeasured,fitLine,preset,applyPreset,validateBall,validateDocument,normalizeDocument,validateAssets,assetIds,trianglePoint,triangleColor,simpleAmounts};
-Object.assign(api,{pickerEditView,checkExtensions,resolveWithout,resolveBefore,resolveThrough,planeFree,touchExtensions:()=>extensionRevision++,addExtension,resolveRecipe,editRecipeColor,sampleRecipeColor,moveRecipeColor,controlLocks,extensionRevision:()=>extensionRevision,squarePoint,squareColor,pickerPoint,pickerColor,pickerContains,pickerSurface,movePickerColor});
+Object.assign(api,{hslHsv,hsvHsl,pickerEditView,checkExtensions,resolveWithout,resolveBefore,resolveThrough,planeFree,touchExtensions:()=>extensionRevision++,addExtension,resolveRecipe,editRecipeColor,sampleRecipeColor,moveRecipeColor,controlLocks,extensionRevision:()=>extensionRevision,squarePoint,squareColor,pickerPoint,pickerColor,pickerContains,pickerSurface,movePickerColor});
 if(typeof module!=='undefined')module.exports=api;root.Shade=api;
 })(globalThis);

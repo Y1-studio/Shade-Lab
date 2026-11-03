@@ -81,7 +81,7 @@ function drawWheel(canvas,ball,active,analysisIds,shape='triangle',guide=null,op
  // otherwise extend beyond add-on masks and leave an uncovered bright strip.
  if(surface)surface.draw(ctx,{ball,colors,active,hue:h,shape});else{ctx.save();ctx.beginPath();
  if(shape==='square')ctx.rect(84,84,152,152);else{ctx.moveTo(99,62);ctx.lineTo(248,160);ctx.lineTo(99,258);ctx.closePath();}
- ctx.clip();ctx.drawImage(pickerRaster(Math.round(h),shape),0,0);ctx.restore();}
+ ctx.clip();ctx.drawImage(pickerRaster(h,shape),0,0);ctx.restore();}
  if(guide?.visible){
   // Fixed RGB/HSL guide: yellow-green at 90 degrees, opposite boundary at 270.
   const a=E.wheelPoint(90,154),b=E.wheelPoint(270,154);
