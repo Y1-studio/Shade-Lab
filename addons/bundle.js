@@ -354,8 +354,16 @@ const Geo = (() => {
   const clean=v=>v>=-1e-5&&v<=100+1e-5?Math.max(0,Math.min(100,v)):v;
   const color=(p,h,shape)=>[E.wrap(h),clean(shape==='square'?p[0]*100:(1-Math.abs(2*p[1]-1))>eps?p[0]/(1-Math.abs(2*p[1]-1))*100:0),clean(p[1]*100)];
   const domain=shape=>shape==='square'?[[0,0],[1,0],[1,1],[0,1]]:[[0,0],[1,.5],[0,1]];
-  const canvas=(p,shape)=>shape==='square'?[84+152*p[0],236-152*p[1]]:[99+149*p[0],258-196*p[1]];
-  const uncanvas=(p,shape)=>shape==='square'?[(p[0]-84)/152,(236-p[1])/152]:[(p[0]-99)/149,(258-p[1])/196];
+  // Keep version-1 tool coordinates in HSL; project their colors into the HSV view.
+  // This preserves existing documents rather than silently recoloring saved tools.
+  const canvas=(p,shape)=>shape==='square'?E.squarePoint([0,p[0]*100,p[1]*100]):[99+149*p[0],258-196*p[1]];
+  const uncanvas=(p,shape)=>{
+    if(shape!=='square')return[(p[0]-99)/149,(258-p[1])/196];
+    const s=E.clamp((p[0]-84)/152,0,1),v=E.clamp((236-p[1])/152,0,1),l=v*(1-s/2),den=Math.min(l,1-l);
+    return[Math.abs(den)>1e-12?(v-l)/den:s,l];
+  };
+  // Sample projected HSL edges: straight HSL guides can curve in HSV.
+  function displayEdge(a,b,shape){const points=[canvas(a,shape)];function split(lo,hi,p,q,depth=0){const mid=mul(add(lo,hi),.5),r=canvas(mid,shape);if(shape==='square'&&depth<12&&Math.hypot(...sub(r,mul(add(p,q),.5)))>.05){split(lo,mid,p,r,depth+1);split(mid,hi,r,q,depth+1);}else points.push(q);}split(a,b,points[0],canvas(b,shape));return points;}
   const project=(p,a,b)=>{const d=sub(b,a),t=Math.max(0,Math.min(1,dot(sub(p,a),d)/(dot(d,d)||1)));return add(a,mul(d,t));};
   function inside(p,poly){let yes=false;const x=p[0],y=p[1];for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[j],b=poly[i],dx=b[0]-a[0],dy=b[1]-a[1],length=dx*dx+dy*dy,t=Math.max(0,Math.min(1,((x-a[0])*dx+(y-a[1])*dy)/(length||1))),qx=x-a[0]-t*dx,qy=y-a[1]-t*dy;if(qx*qx+qy*qy<eps*eps)return true;if((a[1]>y)!==(b[1]>y)&&x<dx*(y-a[1])/dy+a[0])yes=!yes;}return yes;}
   function intersections(a,b,poly){const dx=b[0]-a[0],dy=b[1]-a[1],ts=[];for(let i=0;i<poly.length;i++){const c=poly[i],next=poly[(i+1)%poly.length],ex=next[0]-c[0],ey=next[1]-c[1],den=dx*ey-dy*ex;if(Math.abs(den)<1e-12)continue;const cx=c[0]-a[0],cy=c[1]-a[1],t=(cx*ey-cy*ex)/den,u=(cx*dy-cy*dx)/den;if(t>0&&t<1&&u>=-eps&&u<=1+eps)ts.push(t);}return ts;}
@@ -377,7 +385,7 @@ const Geo = (() => {
     for(const t of ts)if(valid(t))out.push([t*8-4,t*8-4]);return out;
   }
   function lineDistance(origin,dir,polys,desired){const intervals=lineIntervals(origin,dir,polys);if(!intervals.length)throw Error('The line has no intersection with the allowed area.');return intervals.map(([lo,hi])=>Math.max(lo,Math.min(hi,desired))).sort((a,b)=>Math.abs(a-desired)-Math.abs(b-desired))[0];}
-  return {eps,add,sub,mul,dot,cross,point,color,domain,canvas,uncanvas,project,inside,intersections,segment,follow,candidates,closest,polygon,hsv,fromHSV,mapped,rotate,aspect,rotateVisual,lineIntervals,lineDistance};
+  return {eps,add,sub,mul,dot,cross,point,color,domain,canvas,uncanvas,displayEdge,project,inside,intersections,segment,follow,candidates,closest,polygon,hsv,fromHSV,mapped,rotate,aspect,rotateVisual,lineIntervals,lineDistance};
 })();
 
 ;
@@ -443,7 +451,7 @@ const Surface = (() => {
     ({layout,area}=collect(ball,shape));
     if(kind==='hue'){accept(ball);return true;}
     if(request.point&&(!Array.isArray(request.point)||request.point.length!==2||request.point.some(v=>!Number.isFinite(v))))throw Error('Invalid pointer position.');
-    const now=solve(ball),p=Geo.point(now[id],shape),goal=kind==='plane'&&request.point?Geo.uncanvas(request.point,shape):Geo.point(target,shape),delta=Geo.sub(goal,p);
+    const now=solve(ball),p=Geo.point(now[id],shape),goal=kind==='plane'&&request.point?(layout?.provider.pointerGoal?.(layout.config,id,request.point,shape)||Geo.uncanvas(request.point,shape)):Geo.point(target,shape),delta=Geo.sub(goal,p);
     if(Math.hypot(...delta)<1e-10&&!reprojected&&!request.display?.group){accept(ball);return true;}
     let clipped=reprojected;
     const owned=layout&&Object.hasOwn(layout.provider.points(layout.config,ball,raw(ball),shape),id);
@@ -476,9 +484,9 @@ const UI = (() => {
   const button=(id,text)=>make('button',{id,type:'button'},text);
   const field=(text,el)=>{const label=make('label',{class:'field'},text);label.append(el);return label;};
   const roles=ball=>['base',...ball.roles.map(r=>r.id)];
-  function path(ctx,points,shape,close=false){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...Geo.canvas(p,shape)):ctx.moveTo(...Geo.canvas(p,shape)));if(close)ctx.closePath();}
+  function path(ctx,points,shape,close=false){ctx.beginPath();if(!points.length)return;ctx.moveTo(...Geo.canvas(points[0],shape));for(let i=1;i<points.length+(close?1:0);i++)for(const p of Geo.displayEdge(points[i-1],points[i%points.length],shape).slice(1))ctx.lineTo(...p);if(close)ctx.closePath();}
   function stroke(ctx,points,shape,closed=false,color='#eaffff'){path(ctx,points,shape,closed);ctx.lineWidth=3;ctx.strokeStyle='#10212ccc';ctx.stroke();ctx.lineWidth=1.2;ctx.strokeStyle=color;ctx.stroke();}
-  function clip(ctx,shape){path(ctx,Geo.domain(shape),shape,true);ctx.clip();}
+  function clip(ctx,shape){if(shape==='square'){ctx.beginPath();ctx.rect(84,84,152,152);}else path(ctx,Geo.domain(shape),shape,true);ctx.clip();}
   const value=v=>typeof v==='function'?v():v;
   const replace=(target,source)=>{for(const k of Object.keys(target))delete target[k];Object.assign(target,E.clone(source));};
   function editor(api,spec){
@@ -549,7 +557,7 @@ const UI = (() => {
         const target=hit.kind==='hue'?[E.wrap(color[0]+E.wrap(angle(p)-angle(last)+180)-180),...color.slice(1)]:E.pickerColor(...point,color[0],draft.shape,displayBall);
         E.movePickerColor(b,hit.id,hit.kind,target,absolute&&hit.kind==='plane'?E.planeFree(b,draft.shape):true,draft.shape,hit.kind==='plane'?point:undefined,!!spec.pickerSurface,E.resolve(gesture.ball));E.validateBall(b);E.checkExtensions(b);publish(b);
       }else{
-        const delta=Geo.sub(Geo.uncanvas(p,draft.shape),Geo.uncanvas(last,draft.shape)),start=E.clone(draft.config),attempt=f=>evaluate(spec.drag(E.clone(start),Geo.mul(delta,f),gesture.action));let next;
+        const start=E.clone(draft.config),anchor=spec.dragOrigin?.(start,gesture.action),delta=anchor?Geo.sub(Geo.uncanvas(Geo.add(Geo.canvas(anchor,draft.shape),d),draft.shape),anchor):Geo.sub(Geo.uncanvas(p,draft.shape),Geo.uncanvas(last,draft.shape)),attempt=f=>evaluate(spec.drag(E.clone(start),Geo.mul(delta,f),gesture.action));let next;
         try{next=attempt(1);}catch{let lo=0,hi=1;for(let i=0;i<28;i++){const mid=(lo+hi)/2;try{const b=attempt(mid);lo=mid;next=b;}catch{hi=mid;}}}if(next)publish(next);
       }}catch(failure){error.textContent=failure.message;}
     });
@@ -617,6 +625,7 @@ function areaControls(api){
       for(const id of U.roles(f.ball))f.check('role-'+id,E.roleName(f.ball,id),()=>c.roles.includes(id),on=>{c.roles=c.roles.filter(x=>x!==id);if(on)c.roles.push(id);});
     },
     beginDrag(c,start){if(!c.visible)return null;if(c.shape==='rectangle'){if(Math.hypot(...G.sub(start,[c.rect[0]+c.rect[2],c.rect[1]+c.rect[3]]))<.06)return 'resize';return G.inside(start,Areas.rectangle(c))?'move':null;}const i=c.polygon.findIndex(p=>Math.hypot(...G.sub(p,start))<.06);return i<0?null:{vertex:i};},
+    dragOrigin(c,action){return c.shape==='rectangle'?[c.rect[0]+c.rect[2]*(action==='resize'?1:.5),c.rect[1]+c.rect[3]*(action==='resize'?1:.5)]:c.polygon[action.vertex];},
     drag(c,d,action){const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));if(c.shape==='rectangle'){if(action==='resize'){c.rect[2]=clamp(c.rect[2]+d[0],Areas.minimum,1-c.rect[0]);c.rect[3]=clamp(c.rect[3]+d[1],Areas.minimum,1-c.rect[1]);}else{c.rect[0]=clamp(c.rect[0]+d[0],0,1-c.rect[2]);c.rect[1]=clamp(c.rect[1]+d[1],0,1-c.rect[3]);}}else c.polygon[action.vertex]=G.add(c.polygon[action.vertex],d).map(v=>clamp(v,0,1));return c;}
   });
   const legend=U.make('p',{id:'color-areas-membership',class:'hint'});api.mount('tools').append(legend);api.onCleanup(Areas.clear);
@@ -749,11 +758,20 @@ const Line=(()=>{
   function blend(a,b,f){const result=E.clone(a);result.origin=G.add(a.origin,G.mul(G.sub(b.origin,a.origin),f));for(const id of Object.keys(a.distances))result.distances[id]=a.distances[id]+f*(b.distances[id]-a.distances[id]);return result;}
   function fit(c,ball,colors,shape,area){const dir=direction(c),old=points(c),offset=G.lineDistance(c.origin,dir,S.restrictions(area,c.anchor,colors[c.anchor][0],shape),0);c.origin=G.add(c.origin,G.mul(dir,offset));for(const id of Object.keys(c.distances))c.distances[id]=G.lineDistance(c.origin,dir,S.restrictions(area,id,colors[id][0],shape),distance(c,old[id]));}
   function display(c,colors,shape){return c.enabled?c:{...c,origin:G.point(colors[c.anchor],shape)};}
-  function hit(c,p,shape){if(!c.enabled||!c.visible||!G.inside(G.uncanvas(p,shape),G.domain(shape)))return false;const dir=direction(c),a=G.canvas(G.sub(c.origin,G.mul(dir,3)),shape),b=G.canvas(G.add(c.origin,G.mul(dir,3)),shape);return Math.hypot(...G.sub(p,G.project(p,a,b)))<=5;}
+  function pointerGoal(c,id,p,shape){
+    if(shape!=='square'||id===c.anchor)return null;
+    const dir=direction(c);let nearest=null,best=Infinity;
+    for(const [lo,hi]of G.lineIntervals(c.origin,dir,[G.domain(shape)])){
+      const edge=G.displayEdge(G.add(c.origin,G.mul(dir,lo)),G.add(c.origin,G.mul(dir,hi)),shape);
+      for(let i=1;i<edge.length;i++){const q=G.project(p,edge[i-1],edge[i]),d=Math.hypot(...G.sub(p,q));if(d<best){best=d;nearest=q;}}
+    }
+    return nearest?G.uncanvas(nearest,shape):null;
+  }
+  function hit(c,p,shape){if(!c.enabled||!c.visible||!G.inside(G.uncanvas(p,shape),G.domain(shape)))return false;const dir=direction(c);for(const [lo,hi]of G.lineIntervals(c.origin,dir,[G.domain(shape)])){const edge=G.displayEdge(G.add(c.origin,G.mul(dir,lo)),G.add(c.origin,G.mul(dir,hi)),shape);for(let i=1;i<edge.length;i++)if(Math.hypot(...G.sub(p,G.project(p,edge[i-1],edge[i])))<=5)return true;}return false;}
   function draw(ctx,{ball,shape,active,colors}){let c=S.get(ball,'line-guides',shape);if(!c?.visible)return;try{check(c,ball);c=display(c,colors,shape);const dir=direction(c),a=G.sub(c.origin,G.mul(dir,3)),b=G.add(c.origin,G.mul(dir,3)),area=S.collect(ball,shape).area,polys=S.restrictions(area,active,colors[active][0],shape),ts=[0,1,...polys.flatMap(poly=>G.intersections(a,b,poly))].sort((x,y)=>x-y);ctx.save();U.clip(ctx,shape);
-    for(let i=1;i<ts.length;i++){const p=G.add(a,G.mul(G.sub(b,a),ts[i-1])),q=G.add(a,G.mul(G.sub(b,a),ts[i])),legal=polys.every(poly=>G.inside(G.mul(G.add(p,q),.5),poly));ctx.setLineDash(legal?[]:[3,4]);U.stroke(ctx,[p,q],shape,false,legal?'#b3ffff':'#ff899c');}ctx.restore();
+    for(let i=1;i<ts.length;i++){const p=G.add(a,G.mul(G.sub(b,a),ts[i-1])),q=G.add(a,G.mul(G.sub(b,a),ts[i])),mid=G.mul(G.add(p,q),.5);if(!G.inside(mid,G.domain(shape)))continue;const legal=polys.every(poly=>G.inside(mid,poly));ctx.setLineDash(legal?[]:[3,4]);U.stroke(ctx,[p,q],shape,false,legal?'#b3ffff':'#ff899c');}ctx.restore();
   }catch{/* Preserve invalid imported data without a misleading guide. */}}
-  return{kind:'layout',initial,check,direction,distance,points,move,blend,fit,draw,display,hit};
+  return{kind:'layout',initial,check,direction,distance,points,move,blend,fit,draw,display,hit,pointerGoal};
 })();
 
 ;
@@ -1455,7 +1473,7 @@ const ballSteps = [
   "view": "balls",
   "target": "#wheel",
   "copy": [
-   "Each point represents a part of the ball. Drag it around the ring to change hue, or inside the square to change saturation and lightness.",
+   "Each point represents a part of the ball. Drag it around the ring to change hue, or inside the square to change HSV saturation and value.",
    "Choose overlapping points with Editing color. This tour uses a square so the previews match; Wheel settings also offers a triangle."
   ]
  },
