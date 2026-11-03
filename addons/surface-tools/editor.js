@@ -5,9 +5,9 @@ const UI = (() => {
   const button=(id,text)=>make('button',{id,type:'button'},text);
   const field=(text,el)=>{const label=make('label',{class:'field'},text);label.append(el);return label;};
   const roles=ball=>['base',...ball.roles.map(r=>r.id)];
-  function path(ctx,points,shape,close=false){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...Geo.canvas(p,shape)):ctx.moveTo(...Geo.canvas(p,shape)));if(close)ctx.closePath();}
+  function path(ctx,points,shape,close=false){ctx.beginPath();if(!points.length)return;ctx.moveTo(...Geo.canvas(points[0],shape));for(let i=1;i<points.length+(close?1:0);i++)for(const p of Geo.displayEdge(points[i-1],points[i%points.length],shape).slice(1))ctx.lineTo(...p);if(close)ctx.closePath();}
   function stroke(ctx,points,shape,closed=false,color='#eaffff'){path(ctx,points,shape,closed);ctx.lineWidth=3;ctx.strokeStyle='#10212ccc';ctx.stroke();ctx.lineWidth=1.2;ctx.strokeStyle=color;ctx.stroke();}
-  function clip(ctx,shape){path(ctx,Geo.domain(shape),shape,true);ctx.clip();}
+  function clip(ctx,shape){if(shape==='square'){ctx.beginPath();ctx.rect(84,84,152,152);}else path(ctx,Geo.domain(shape),shape,true);ctx.clip();}
   const value=v=>typeof v==='function'?v():v;
   const replace=(target,source)=>{for(const k of Object.keys(target))delete target[k];Object.assign(target,E.clone(source));};
   function editor(api,spec){
@@ -78,7 +78,7 @@ const UI = (() => {
         const target=hit.kind==='hue'?[E.wrap(color[0]+E.wrap(angle(p)-angle(last)+180)-180),...color.slice(1)]:E.pickerColor(...point,color[0],draft.shape,displayBall);
         E.movePickerColor(b,hit.id,hit.kind,target,absolute&&hit.kind==='plane'?E.planeFree(b,draft.shape):true,draft.shape,hit.kind==='plane'?point:undefined,!!spec.pickerSurface,E.resolve(gesture.ball));E.validateBall(b);E.checkExtensions(b);publish(b);
       }else{
-        const delta=Geo.sub(Geo.uncanvas(p,draft.shape),Geo.uncanvas(last,draft.shape)),start=E.clone(draft.config),attempt=f=>evaluate(spec.drag(E.clone(start),Geo.mul(delta,f),gesture.action));let next;
+        const start=E.clone(draft.config),anchor=spec.dragOrigin?.(start,gesture.action),delta=anchor?Geo.sub(Geo.uncanvas(Geo.add(Geo.canvas(anchor,draft.shape),d),draft.shape),anchor):Geo.sub(Geo.uncanvas(p,draft.shape),Geo.uncanvas(last,draft.shape)),attempt=f=>evaluate(spec.drag(E.clone(start),Geo.mul(delta,f),gesture.action));let next;
         try{next=attempt(1);}catch{let lo=0,hi=1;for(let i=0;i<28;i++){const mid=(lo+hi)/2;try{const b=attempt(mid);lo=mid;next=b;}catch{hi=mid;}}}if(next)publish(next);
       }}catch(failure){error.textContent=failure.message;}
     });

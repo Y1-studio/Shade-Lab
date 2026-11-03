@@ -60,7 +60,7 @@ const Surface = (() => {
     ({layout,area}=collect(ball,shape));
     if(kind==='hue'){accept(ball);return true;}
     if(request.point&&(!Array.isArray(request.point)||request.point.length!==2||request.point.some(v=>!Number.isFinite(v))))throw Error('Invalid pointer position.');
-    const now=solve(ball),p=Geo.point(now[id],shape),goal=kind==='plane'&&request.point?Geo.uncanvas(request.point,shape):Geo.point(target,shape),delta=Geo.sub(goal,p);
+    const now=solve(ball),p=Geo.point(now[id],shape),goal=kind==='plane'&&request.point?(layout?.provider.pointerGoal?.(layout.config,id,request.point,shape)||Geo.uncanvas(request.point,shape)):Geo.point(target,shape),delta=Geo.sub(goal,p);
     if(Math.hypot(...delta)<1e-10&&!reprojected&&!request.display?.group){accept(ball);return true;}
     let clipped=reprojected;
     const owned=layout&&Object.hasOwn(layout.provider.points(layout.config,ball,raw(ball),shape),id);

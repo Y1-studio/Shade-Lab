@@ -17,3 +17,7 @@ Point layouts are unregistered. Area providers may return `effective(config) ===
 ## ShadeLab 3.5.0
 
 Editors use the generic contextual dialog presenter. Existing draft validation, constraints and Apply/Cancel transactions are retained; the main picker remains visible in the production studio.
+
+## CSP square projection
+
+The default square now displays HSV. Version-1 square tool coordinates remain HSL so existing areas, line settings and resolved colors load unchanged. `Geo.canvas` and `uncanvas` project between saved HSL coordinates and displayed HSV pixels. Adaptive display edges keep masks and guides aligned with the color markers; HSL lines and rectangles can curve in HSV. Line pointer projection uses the displayed curve, and area gesture deltas rebase from the current handle after an overshoot. The triangle and stored schemas are unchanged.

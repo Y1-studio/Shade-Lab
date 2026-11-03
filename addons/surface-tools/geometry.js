@@ -5,8 +5,16 @@ const Geo = (() => {
   const clean=v=>v>=-1e-5&&v<=100+1e-5?Math.max(0,Math.min(100,v)):v;
   const color=(p,h,shape)=>[E.wrap(h),clean(shape==='square'?p[0]*100:(1-Math.abs(2*p[1]-1))>eps?p[0]/(1-Math.abs(2*p[1]-1))*100:0),clean(p[1]*100)];
   const domain=shape=>shape==='square'?[[0,0],[1,0],[1,1],[0,1]]:[[0,0],[1,.5],[0,1]];
-  const canvas=(p,shape)=>shape==='square'?[84+152*p[0],236-152*p[1]]:[99+149*p[0],258-196*p[1]];
-  const uncanvas=(p,shape)=>shape==='square'?[(p[0]-84)/152,(236-p[1])/152]:[(p[0]-99)/149,(258-p[1])/196];
+  // Keep version-1 tool coordinates in HSL; project their colors into the HSV view.
+  // This preserves existing documents rather than silently recoloring saved tools.
+  const canvas=(p,shape)=>shape==='square'?E.squarePoint([0,p[0]*100,p[1]*100]):[99+149*p[0],258-196*p[1]];
+  const uncanvas=(p,shape)=>{
+    if(shape!=='square')return[(p[0]-99)/149,(258-p[1])/196];
+    const s=E.clamp((p[0]-84)/152,0,1),v=E.clamp((236-p[1])/152,0,1),l=v*(1-s/2),den=Math.min(l,1-l);
+    return[Math.abs(den)>1e-12?(v-l)/den:s,l];
+  };
+  // Sample projected HSL edges: straight HSL guides can curve in HSV.
+  function displayEdge(a,b,shape){const points=[canvas(a,shape)];function split(lo,hi,p,q,depth=0){const mid=mul(add(lo,hi),.5),r=canvas(mid,shape);if(shape==='square'&&depth<12&&Math.hypot(...sub(r,mul(add(p,q),.5)))>.05){split(lo,mid,p,r,depth+1);split(mid,hi,r,q,depth+1);}else points.push(q);}split(a,b,points[0],canvas(b,shape));return points;}
   const project=(p,a,b)=>{const d=sub(b,a),t=Math.max(0,Math.min(1,dot(sub(p,a),d)/(dot(d,d)||1)));return add(a,mul(d,t));};
   function inside(p,poly){let yes=false;const x=p[0],y=p[1];for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[j],b=poly[i],dx=b[0]-a[0],dy=b[1]-a[1],length=dx*dx+dy*dy,t=Math.max(0,Math.min(1,((x-a[0])*dx+(y-a[1])*dy)/(length||1))),qx=x-a[0]-t*dx,qy=y-a[1]-t*dy;if(qx*qx+qy*qy<eps*eps)return true;if((a[1]>y)!==(b[1]>y)&&x<dx*(y-a[1])/dy+a[0])yes=!yes;}return yes;}
   function intersections(a,b,poly){const dx=b[0]-a[0],dy=b[1]-a[1],ts=[];for(let i=0;i<poly.length;i++){const c=poly[i],next=poly[(i+1)%poly.length],ex=next[0]-c[0],ey=next[1]-c[1],den=dx*ey-dy*ex;if(Math.abs(den)<1e-12)continue;const cx=c[0]-a[0],cy=c[1]-a[1],t=(cx*ey-cy*ex)/den,u=(cx*dy-cy*dx)/den;if(t>0&&t<1&&u>=-eps&&u<=1+eps)ts.push(t);}return ts;}
@@ -28,5 +36,5 @@ const Geo = (() => {
     for(const t of ts)if(valid(t))out.push([t*8-4,t*8-4]);return out;
   }
   function lineDistance(origin,dir,polys,desired){const intervals=lineIntervals(origin,dir,polys);if(!intervals.length)throw Error('The line has no intersection with the allowed area.');return intervals.map(([lo,hi])=>Math.max(lo,Math.min(hi,desired))).sort((a,b)=>Math.abs(a-desired)-Math.abs(b-desired))[0];}
-  return {eps,add,sub,mul,dot,cross,point,color,domain,canvas,uncanvas,project,inside,intersections,segment,follow,candidates,closest,polygon,hsv,fromHSV,mapped,rotate,aspect,rotateVisual,lineIntervals,lineDistance};
+  return {eps,add,sub,mul,dot,cross,point,color,domain,canvas,uncanvas,displayEdge,project,inside,intersections,segment,follow,candidates,closest,polygon,hsv,fromHSV,mapped,rotate,aspect,rotateVisual,lineIntervals,lineDistance};
 })();
