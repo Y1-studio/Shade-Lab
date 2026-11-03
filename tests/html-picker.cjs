@@ -6,10 +6,10 @@ const close=(a,b,epsilon=1e-7)=>assert.ok(Math.abs(a-b)<=epsilon, a+' differs fr
 const view=t=>{t.$('wheel').getBoundingClientRect=()=>({left:0,top:0,width:320,height:320});};
 const event=(t,type,x,y,pointerId=1)=>t.event('wheel',type,{button:0,pointerId,clientX:x,clientY:y});
 const marker=(t,id,kind)=>t.w.ShadeRender.drawWheel(t.$('wheel'),t.model().balls[0],id,[],t.model().pickerShape||'triangle').find(m=>m.id===id&&m.kind===kind);
-test('square mapping is HSL, invertible, clamped, and independent of hue',t=>{
+test('square mapping is HSV, preserves HSL colors, and clamps to the CSP corners',t=>{
  const E=t.w.Shade;
- for(const s of [0,12,50,100])for(const l of [0,33,50,100]){const p=E.squarePoint([357,s,l]),c=E.squareColor(...p,357);close(c[0],357);close(c[1],s);close(c[2],l);}
- assert.deepEqual(plain(E.squareColor(400,-100,370)),[10,100,100]);assert.equal(E.pickerContains(85,85,'square'),true);assert.equal(E.pickerContains(85,85,'triangle'),false);
+ for(const s of [0,12,50,100])for(const l of [0,33,50,100]){const p=E.squarePoint([357,s,l]),c=E.squareColor(...p,357);close(c[0],357);if(l<100)close(c[1],s);close(c[2],l);assert.equal(E.toHex(c),E.toHex([357,s,l]));}
+ assert.deepEqual(plain(E.squareColor(400,-100,370)),[10,100,50]);assert.equal(E.pickerContains(85,85,'square'),true);assert.equal(E.pickerContains(85,85,'triangle'),false);
 });
 test('free plane movement keeps every other color fixed, including descendants of Base',t=>{
  const E=t.w.Shade,b=E.defaultBall();b.strength=2;b.roles[1].source='highlight';const before=E.resolve(b);
@@ -60,8 +60,8 @@ test('cancelled drags and foreign pointers cannot leave partial arrangements',t=
 test('square pixels and plotted markers use the square geometry',t=>{
  const E=t.w.Shade,R=t.w.ShadeRender,c=t.w.document.createElement('canvas');c.width=c.height=640;const b=E.defaultBall('Square',[0,100,50]);
  const markers=R.drawWheel(c,b,'base',[],'square'),p=c.getContext('2d');
- const pixel=(x,y)=>[...p.getImageData(x*2,y*2,1,1).data];assert.ok(pixel(90,85).slice(0,3).every(v=>v>248));assert.ok(pixel(90,235).slice(0,3).every(v=>v<5));const grey=pixel(85,160);assert.ok(Math.max(...grey.slice(0,3))-Math.min(...grey.slice(0,3))<5);
- const marker=markers.find(m=>m.kind==='plane'&&m.id==='base');assert.equal(marker.x,236);assert.equal(marker.y,160);assert.equal(pixel(90,160)[3],255);
+ const pixel=(x,y)=>[...p.getImageData(x*2,y*2,1,1).data];assert.ok(pixel(85,85).slice(0,3).every(v=>v>248));assert.ok(pixel(90,235).slice(0,3).every(v=>v<5));const grey=pixel(85,160);assert.ok(Math.max(...grey.slice(0,3))-Math.min(...grey.slice(0,3))<5);
+ const marker=markers.find(m=>m.kind==='plane'&&m.id==='base');assert.equal(marker.x,236);assert.equal(marker.y,84);assert.equal(pixel(90,160)[3],255);
 },{realCanvas:true});
 
 (async()=>{let failed=0;for(const {name,fn,options}of tests){const t=launch(undefined,options);try{await t.w.ShadeReady;await fn(t);assert.equal(t.errors.length,0,'uncaught UI error');console.log('PASS',name);}catch(error){failed++;console.log('FAIL',name,'\n',error.stack);}finally{await t.close();}}console.log(`${tests.length-failed}/${tests.length} picker checks passed`);process.exitCode=failed?1:0;})();
