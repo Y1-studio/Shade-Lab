@@ -1,4 +1,4 @@
-# Third-party credits
+# Shade Lab 1.0 — third-party credits
 
 ## Tutorial sprites
 

@@ -1,4 +1,6 @@
 {
+  "name": "shade-lab",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build:html": "node build-html.cjs",

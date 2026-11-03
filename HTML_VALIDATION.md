@@ -1,7 +1,8 @@
-# Shade Lab 3.8.2 — release checks
+# Shade Lab 1.0 — release checks
 
-The release contains the offline HTML app, browser-readable guides, editable examples, screenshots and credits. The HTML application is unchanged from the verified tutorial update.
+The release contains the offline HTML app, browser-readable guides, editable examples, screenshots and credits. The app retains the verified tutorial behavior and now displays the public release version 1.0.
 
+- Version 1.0 rename: 14 regression checks and 15 add-on checks passed for both source and standalone builds (58 checks). The rebuilt guides, package metadata, app footer, release filenames and links use version 1.0. Saved-document schemas and add-on versions retain their existing compatibility.
 - 20 tutorial checks passed against the source app and again against the standalone HTML.
 - 22 studio-layout checks and 15 add-on checks passed per build: 114 checks in total across these suites.
 - Brave's browser add-on checked all 31 lessons at five viewport sizes: 155 rendered lesson layouts.

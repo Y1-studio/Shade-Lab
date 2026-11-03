@@ -1,9 +1,9 @@
-# Shade Lab — download and setup
+# Shade Lab 1.0 — download and setup
 
 ## Download the app
 
 1. Open the [latest Shade Lab release](https://github.com/Y1-studio/Shade-Lab/releases/latest).
-2. Under **Assets**, download **Shade-Lab-HTML-v3.8.2.zip**.
+2. Under **Assets**, download **Shade-Lab-HTML-v1.0.zip**.
 3. Extract the ZIP into a folder. On Windows, right-click it and choose **Extract All**. On macOS, double-click the ZIP. On Linux, use your archive manager's Extract option.
 4. Open the extracted folder and double-click **Shade Lab.html**. Use a desktop browser such as Brave, Chrome or Edge. If it opens in a text editor, right-click the HTML file and choose **Open with** your browser.
 
@@ -15,8 +15,8 @@ Open the HTML file from the extracted folder. There is no installer, account, se
 
 ## Which download?
 
-- **Shade-Lab-HTML-v3.8.2.zip:** ready-to-open app, guides, examples, screenshots and credits.
-- **Shade-Lab-Source-v3.8.2.zip:** editable source, build scripts and tests for developers.
+- **Shade-Lab-HTML-v1.0.zip:** ready-to-open app, guides, examples, screenshots and credits.
+- **Shade-Lab-Source-v1.0.zip:** editable source, build scripts and tests for developers.
 - **SHA256SUMS.txt:** checksums for verifying the two ZIP downloads.
 
 ## Save your work

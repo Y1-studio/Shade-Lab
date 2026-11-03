@@ -1,8 +1,8 @@
-# Shade Lab 3.8.2 — user guide
+# Shade Lab 1.0 — user guide
 
 ## Download and open
 
-Download **Shade-Lab-HTML-v3.8.2.zip** from the GitHub release, extract it into a folder, then open **Shade Lab.html** in your desktop browser. On Windows, use **Extract All** before opening the HTML file. **Installation Guide.html** in the ZIP covers setup, saving and updating. No installer, account or server is needed.
+Download **Shade-Lab-HTML-v1.0.zip** from the GitHub release, extract it into a folder, then open **Shade Lab.html** in your desktop browser. On Windows, use **Extract All** before opening the HTML file. **Installation Guide.html** in the ZIP covers setup, saving and updating. No installer, account or server is needed.
 
 **Firefox:** screen color picking (**Pick screen**) does not work in Firefox.
 
@@ -32,7 +32,7 @@ Examples reset between steps and category changes. The practice project stays sq
 
 Studies appear in **Your color studies**. **Save ball type** adds a reusable version to **Ball types**. Studies/types stay in this browser on this device; **Save project** downloads an editable backup, and **Open JSON** reopens it.
 
-The close button stays available while the card scrolls and inside native dialogs. Arrow keys while focused in the tutorial navigate steps; input controls keep their usual keys. Double-click **Shade Lab.html** to run the offline app. The footer should say **3.8.2 · Illustrated guide**.
+The close button stays available while the card scrolls and inside native dialogs. Arrow keys while focused in the tutorial navigate steps; input controls keep their usual keys. Double-click **Shade Lab.html** to run the offline app. The footer should say **1.0 · Illustrated guide**.
 
 ## Local saves and multiple tabs
 

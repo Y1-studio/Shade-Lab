@@ -7,7 +7,7 @@ node_modules/
 # Generated test artifacts (source tests and fixture inputs stay tracked)
 /tests/artifacts/
 /tests/output/
-# Portable releases are stored in the shared ../ZIPs folder
+# Shade Lab 1.0 portable releases are stored in the shared ../ZIPs folder
 *.zip
 *.zip.sha256
 *.lnk

@@ -1,5 +1,7 @@
 # Shade Lab development rules
 
+- The current public product release is Shade Lab 1.0 (package version 1.0.0, release tag v1.0). Keep current download names, app labels and guides consistent with that version. Add-on and saved-document schema versions are independent; preserve their compatibility.
+
 - The active product is the HTML app. Leave `archive/python-version/` archived.
 - The user requires every new feature from this point onward to be an actual add-on in `addons/<feature-id>/`. Keep its implementation, UI construction, scoped styles, documentation, and feature tests together there. Split large features into multiple files inside their package.
 - Keep the existing features in their current `web/` modules. Bug fixes may edit the module that owns the bug; do not move or rewrite working features merely to prepare future features.

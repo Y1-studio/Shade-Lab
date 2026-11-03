@@ -4,13 +4,14 @@ const path = require('node:path');
 const { buildAddons } = require('./tools/build-addons.cjs');
 const { bundleApp } = require('./tools/bundle-app.cjs');
 const root = __dirname;
+const version = require('./package.json').version.replace(/\.0$/, '');
 const addonBundle = buildAddons(path.join(root, 'addons'));
 const html = bundleApp(root, addonBundle);
 fs.writeFileSync(path.join(root, 'addons/bundle.js'), addonBundle);
 fs.writeFileSync(path.join(root, 'Shade Lab.html'), html);
 console.log('Built standalone Shade Lab.html');
 const escape = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const inline = text => escape(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/`([^`]+)`/g, '<code>$1</code>');
+const inline = text => escape(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\[([^\]]+)\]\((https:\/\/[^)]+)\)/g, '<a href="$2">$1</a>');
 function guide(source, output, title) {
   let code = false, list = '', parts = [];
   for (const line of fs.readFileSync(path.join(root, source), 'utf8').split(/\r?\n/)) {
@@ -26,7 +27,7 @@ function guide(source, output, title) {
   if (list) parts.push('</' + list + '>');
   fs.writeFileSync(path.join(root, output), '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + title + '</title><style>body{font:17px/1.65 system-ui,sans-serif;max-width:860px;margin:48px auto;padding:0 24px 60px;background:#f5f6f9;color:#202735}h1,h2{line-height:1.25}h2{margin-top:2em}a{color:#2354b8}pre{overflow:auto;background:#e7eaf0;padding:18px;border-radius:10px}code{font-size:.9em}li{margin:.6em 0}nav{display:flex;gap:24px;flex-wrap:wrap}</style><nav><a href="Shade Lab.html">Open Shade Lab</a><a href="User Guide.html">User guide</a><a href="AI Formula Guide.html">AI formula guide</a></nav><main>' + parts.join('\n') + '</main></html>');
 }
-guide('HTML_GUIDE.md', 'User Guide.html', 'Shade Lab — User Guide');
-guide('AI_FORMULA_GUIDE.md', 'AI Formula Guide.html', 'Shade Lab — AI Formula Guide');
-guide('INSTALLATION.md', 'Installation Guide.html', 'Shade Lab — Download and Setup');
+guide('HTML_GUIDE.md', 'User Guide.html', 'Shade Lab ' + version + ' — User Guide');
+guide('AI_FORMULA_GUIDE.md', 'AI Formula Guide.html', 'Shade Lab ' + version + ' — AI Formula Guide');
+guide('INSTALLATION.md', 'Installation Guide.html', 'Shade Lab ' + version + ' — Download and Setup');
 console.log('Built browser-readable guides');

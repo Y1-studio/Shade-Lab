@@ -1,14 +1,14 @@
-# Shade Lab
+# Shade Lab 1.0
 
 An offline color-study app for artists. Build shading palettes on a ball, compare color relationships, and try filters before taking the colors back to your artwork. Open one HTML file in your browser—no account or installation required.
 
-**[Download Shade Lab 3.8.2](https://github.com/Y1-studio/Shade-Lab/releases/tag/v3.8.2)** · [Installation guide](INSTALLATION.md) · [User guide](HTML_GUIDE.md) · [Formula guide](AI_FORMULA_GUIDE.md)
+**[Download Shade Lab 1.0](https://github.com/Y1-studio/Shade-Lab/releases/tag/v1.0)** · [Installation guide](INSTALLATION.md) · [User guide](HTML_GUIDE.md) · [Formula guide](AI_FORMULA_GUIDE.md)
 
-![Shade Lab color picker, study balls and color analysis](docs/screenshots/studio.jpg)
+![Shade Lab color picker, study balls and color analysis](docs/screenshots/studio.jpg?v=1.0)
 
 ## Start using it
 
-1. Download **Shade-Lab-HTML-v3.8.2.zip** from the release and extract it.
+1. Download **Shade-Lab-HTML-v1.0.zip** from the release and extract it.
 2. Open **Shade Lab.html** in your desktop browser.
 3. Click a colored part of a ball to select what you edit. Change its color with the wheel, sliders or HEX field; linked shading colors follow their recipes. **? Learn** introduces the app in short illustrated sections.
 
@@ -30,7 +30,7 @@ The app works offline. **Installation Guide.html** and **User Guide.html** are i
 
 The same colors can use different artwork and region shapes. The guide breaks the green example into editable masks and a fixed outline, then compares it with Classic.
 
-![Custom reference geometry compared with the built-in Classic ball](docs/screenshots/custom-ball.jpg)
+![Custom reference geometry compared with the built-in Classic ball](docs/screenshots/custom-ball.jpg?v=1.0)
 
 ### Tools and filters
 
@@ -38,13 +38,13 @@ Tools keep their own previews and Apply/Cancel controls. Filter Lab shows the or
 
 | Hue harmony | Filter Lab |
 | --- | --- |
-| ![Triadic harmony controls and preview](docs/screenshots/harmony.jpg) | ![Multiply filter with applied paint and split comparison](docs/screenshots/filter-lab.jpg) |
+| ![Triadic harmony controls and preview](docs/screenshots/harmony.jpg?v=1.0) | ![Multiply filter with applied paint and split comparison](docs/screenshots/filter-lab.jpg?v=1.0) |
 
 ### Reference image
 
 Load or paste an image, then click it to sample into the selected color. The History tab keeps completed color choices for reuse.
 
-![Reference-image workspace with the app's regular Carmine and Midnight balls](docs/screenshots/reference-regular.jpg)
+![Reference-image workspace with the app's regular Carmine and Midnight balls](docs/screenshots/reference-regular.jpg?v=1.0)
 
 ### Learn by section
 
@@ -52,7 +52,7 @@ Choose a category on the opening menu. The glasses guide accompanies the illustr
 
 | Choose a section | Follow a short visual lesson |
 | --- | --- |
-| ![Tutorial categories with the regular character](docs/screenshots/tutorial-menu.jpg) | ![Icon-control lesson with the glasses character and an illustration](docs/screenshots/tutorial-lesson.jpg) |
+| ![Tutorial categories with the regular character](docs/screenshots/tutorial-menu.jpg?v=1.0) | ![Icon-control lesson with the glasses character and an illustration](docs/screenshots/tutorial-lesson.jpg?v=1.0) |
 
 ## Saving and updating
 
