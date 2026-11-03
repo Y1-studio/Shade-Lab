@@ -1,0 +1,16 @@
+{
+  "captured": "2026-11-03",
+  "method": "Fresh full-desktop captures of the live CSP main Color Wheel palette, HSV mode",
+  "bounds": { "left": 96, "top": 1006, "side": 101 },
+  "points": [[120,1030],[147,1057],[175,1080]],
+  "toleranceBytes": 2,
+  "note": "Hue-ring readouts show 0, 60, 120, 180, 240 and 300. Interior samples avoid the selection marker and mouse highlight. A two-byte tolerance accounts for ring angle and raster quantization.",
+  "hues": [
+    {"name":"Red","hue":0,"rgb":[[194,148,148],[126,62,62],[68,15,15]]},
+    {"name":"Yellow","hue":60,"rgb":[[192,193,149],[126,126,62],[68,68,15]]},
+    {"name":"Green","hue":120,"rgb":[[148,194,148],[62,126,63],[15,68,15]]},
+    {"name":"Cyan","hue":180,"rgb":[[148,194,194],[62,126,126],[15,68,69]]},
+    {"name":"Blue","hue":240,"rgb":[[148,148,194],[62,63,126],[15,15,68]]},
+    {"name":"Magenta","hue":300,"rgb":[[194,148,194],[126,62,126],[68,15,68]]}
+  ]
+}
