@@ -8,6 +8,7 @@ function areaControls(api){
       for(const id of U.roles(f.ball))f.check('role-'+id,E.roleName(f.ball,id),()=>c.roles.includes(id),on=>{c.roles=c.roles.filter(x=>x!==id);if(on)c.roles.push(id);});
     },
     beginDrag(c,start){if(!c.visible)return null;if(c.shape==='rectangle'){if(Math.hypot(...G.sub(start,[c.rect[0]+c.rect[2],c.rect[1]+c.rect[3]]))<.06)return 'resize';return G.inside(start,Areas.rectangle(c))?'move':null;}const i=c.polygon.findIndex(p=>Math.hypot(...G.sub(p,start))<.06);return i<0?null:{vertex:i};},
+    dragOrigin(c,action){return c.shape==='rectangle'?[c.rect[0]+c.rect[2]*(action==='resize'?1:.5),c.rect[1]+c.rect[3]*(action==='resize'?1:.5)]:c.polygon[action.vertex];},
     drag(c,d,action){const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));if(c.shape==='rectangle'){if(action==='resize'){c.rect[2]=clamp(c.rect[2]+d[0],Areas.minimum,1-c.rect[0]);c.rect[3]=clamp(c.rect[3]+d[1],Areas.minimum,1-c.rect[1]);}else{c.rect[0]=clamp(c.rect[0]+d[0],0,1-c.rect[2]);c.rect[1]=clamp(c.rect[1]+d[1],0,1-c.rect[3]);}}else c.polygon[action.vertex]=G.add(c.polygon[action.vertex],d).map(v=>clamp(v,0,1));return c;}
   });
   const legend=U.make('p',{id:'color-areas-membership',class:'hint'});api.mount('tools').append(legend);api.onCleanup(Areas.clear);
