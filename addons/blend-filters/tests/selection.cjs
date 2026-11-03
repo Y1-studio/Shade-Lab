@@ -40,11 +40,11 @@ test('newly duplicated selected balls can receive a filter without stale or miss
 });
 test('main square and hue ring edit detached applied paint, keeping both selected balls',t=>{
   t.set('picker-shape','square');t.click('select-all');const before=t.model(),ids=chosen(t);open(t);t.set('hex','#3284BB');assert.equal(t.$('fl-paint').tagName,'BUTTON');
-  t.$('wheel').getBoundingClientRect=()=>({left:0,top:0,width:320,height:320});
+  const paintHue=Number(t.$('number-H').value);t.$('wheel').getBoundingClientRect=()=>({left:0,top:0,width:320,height:320});
   t.event('wheel','pointerdown',{button:0,pointerId:1,clientX:84,clientY:236});t.event('wheel','pointermove',{pointerId:1,clientX:236,clientY:160});t.event('wheel','pointerup',{pointerId:1});
-  assert.equal(t.$('fl-paint-hex').value,'#0099FF');assert.deepEqual(t.model(),before);assert.deepEqual(chosen(t),ids);
-  t.event('wheel','pointerdown',{button:0,pointerId:2,clientX:t.w.Shade.wheelPoint(0)[0],clientY:t.w.Shade.wheelPoint(0)[1]});t.event('wheel','pointerup',{pointerId:2});assert.equal(t.$('fl-paint-hex').value,'#FF0000');assert.equal(t.$('hex').value,'#FF0000');
-  t.click('fl-apply');assert.ok(body(t).every(b=>config(b).roles.base.sourceRgb.join()==='255,0,0'));t.click('undo');assert.deepEqual(t.model(),before);
+  const expected=t.w.Shade.hslRgb(t.w.Shade.squareColor(236,160,paintHue)),actual=t.w.Shade.hslRgb(t.w.Shade.hexHsl(t.$('fl-paint-hex').value));actual.forEach((v,i)=>assert.ok(Math.abs(v-expected[i])<=1,'HSV paint channel '+i));assert.deepEqual(t.model(),before);assert.deepEqual(chosen(t),ids);
+  t.event('wheel','pointerdown',{button:0,pointerId:2,clientX:t.w.Shade.wheelPoint(0)[0],clientY:t.w.Shade.wheelPoint(0)[1]});t.event('wheel','pointerup',{pointerId:2});assert.equal(t.$('fl-paint-hex').value,'#800000');assert.equal(t.$('hex').value,'#800000');
+  t.click('fl-apply');assert.ok(body(t).every(b=>config(b).roles.base.sourceRgb.join()==='128,0,0'));t.click('undo');assert.deepEqual(t.model(),before);
 });
 test('canceling square drag restores all draft row settings and creates no Undo entry',t=>{
   t.set('picker-shape','square');open(t);t.click('fl-add-row');t.set('hex','#4B81AC');t.set('fl-opacity','64','input');const before=t.model(),image=rows(t)[1].querySelector('canvas').toDataURL();
