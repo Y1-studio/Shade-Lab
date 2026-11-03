@@ -1,6 +1,6 @@
 # Shade Lab development rules
 
-- The current public product release is Shade Lab 1.0 (package version 1.0.0, release tag v1.0). Keep current download names, app labels and guides consistent with that version. Add-on and saved-document schema versions are independent; preserve their compatibility.
+- The current product release is Shade Lab 1.0.1 (package version 1.0.1, release tag v1.0.1). Keep current download names, app labels and guides consistent with that version. Add-on and saved-document schema versions are independent; preserve their compatibility.
 
 - The active product is the HTML app. Leave `archive/python-version/` archived.
 - The user requires every new feature from this point onward to be an actual add-on in `addons/<feature-id>/`. Keep its implementation, UI construction, scoped styles, documentation, and feature tests together there. Split large features into multiple files inside their package.
@@ -10,6 +10,7 @@
 - Part 2 is implemented in `addons/wheel-harmonies/`. Keep its math, guides, controls, styles, and tests in that package. Part 3 uses `addons/surface-tools/` for shared geometry, solver and editors, plus `addons/point-layouts/`, `addons/color-areas/`, and `addons/line-guides/`. Comparison and hue-only Highlight/Shadow swapping live in `addons/ball-comparison/` and `addons/wheel-position-swap/`. Do not create empty installed placeholders.
 - Color add-ons use the generic engine extension API for a shared resolved result across all views and exports. Keep recipe evaluation separate. Tool hue gestures must not overwrite recipes; disabled tools reveal the underlying recipe. Use detached preview dialogs and one validated transaction for Apply.
 - Preserve the fixed, non-draggable 90°/270° warm/cool guideline and all current Part 1/New ball behavior.
+- Preserve the six existing `addons/hue-color-limits/` reference shapes, cubic paths, cutouts and native HSV rendering. Fixing the ordinary square must not reshape these color limits; change them only on an explicit user request.
 - Run the relevant source and standalone tests. Rebuild `Shade Lab.html` and the browser guides with `npm run build:html`; never manually edit generated HTML or `addons/bundle.js`. The portable app must remain fully offline and self-contained.
 - Update the guide, validation record, and current HTML distribution ZIP when delivering a changed app. Keep backups and previous dated releases. Keep development dependencies, tests, archives, backups, and book extracts out of the user distribution ZIP.
 
