@@ -9,9 +9,18 @@ const Line=(()=>{
   function blend(a,b,f){const result=E.clone(a);result.origin=G.add(a.origin,G.mul(G.sub(b.origin,a.origin),f));for(const id of Object.keys(a.distances))result.distances[id]=a.distances[id]+f*(b.distances[id]-a.distances[id]);return result;}
   function fit(c,ball,colors,shape,area){const dir=direction(c),old=points(c),offset=G.lineDistance(c.origin,dir,S.restrictions(area,c.anchor,colors[c.anchor][0],shape),0);c.origin=G.add(c.origin,G.mul(dir,offset));for(const id of Object.keys(c.distances))c.distances[id]=G.lineDistance(c.origin,dir,S.restrictions(area,id,colors[id][0],shape),distance(c,old[id]));}
   function display(c,colors,shape){return c.enabled?c:{...c,origin:G.point(colors[c.anchor],shape)};}
-  function hit(c,p,shape){if(!c.enabled||!c.visible||!G.inside(G.uncanvas(p,shape),G.domain(shape)))return false;const dir=direction(c),a=G.canvas(G.sub(c.origin,G.mul(dir,3)),shape),b=G.canvas(G.add(c.origin,G.mul(dir,3)),shape);return Math.hypot(...G.sub(p,G.project(p,a,b)))<=5;}
+  function pointerGoal(c,id,p,shape){
+    if(shape!=='square'||id===c.anchor)return null;
+    const dir=direction(c);let nearest=null,best=Infinity;
+    for(const [lo,hi]of G.lineIntervals(c.origin,dir,[G.domain(shape)])){
+      const edge=G.displayEdge(G.add(c.origin,G.mul(dir,lo)),G.add(c.origin,G.mul(dir,hi)),shape);
+      for(let i=1;i<edge.length;i++){const q=G.project(p,edge[i-1],edge[i]),d=Math.hypot(...G.sub(p,q));if(d<best){best=d;nearest=q;}}
+    }
+    return nearest?G.uncanvas(nearest,shape):null;
+  }
+  function hit(c,p,shape){if(!c.enabled||!c.visible||!G.inside(G.uncanvas(p,shape),G.domain(shape)))return false;const dir=direction(c);for(const [lo,hi]of G.lineIntervals(c.origin,dir,[G.domain(shape)])){const edge=G.displayEdge(G.add(c.origin,G.mul(dir,lo)),G.add(c.origin,G.mul(dir,hi)),shape);for(let i=1;i<edge.length;i++)if(Math.hypot(...G.sub(p,G.project(p,edge[i-1],edge[i])))<=5)return true;}return false;}
   function draw(ctx,{ball,shape,active,colors}){let c=S.get(ball,'line-guides',shape);if(!c?.visible)return;try{check(c,ball);c=display(c,colors,shape);const dir=direction(c),a=G.sub(c.origin,G.mul(dir,3)),b=G.add(c.origin,G.mul(dir,3)),area=S.collect(ball,shape).area,polys=S.restrictions(area,active,colors[active][0],shape),ts=[0,1,...polys.flatMap(poly=>G.intersections(a,b,poly))].sort((x,y)=>x-y);ctx.save();U.clip(ctx,shape);
-    for(let i=1;i<ts.length;i++){const p=G.add(a,G.mul(G.sub(b,a),ts[i-1])),q=G.add(a,G.mul(G.sub(b,a),ts[i])),legal=polys.every(poly=>G.inside(G.mul(G.add(p,q),.5),poly));ctx.setLineDash(legal?[]:[3,4]);U.stroke(ctx,[p,q],shape,false,legal?'#b3ffff':'#ff899c');}ctx.restore();
+    for(let i=1;i<ts.length;i++){const p=G.add(a,G.mul(G.sub(b,a),ts[i-1])),q=G.add(a,G.mul(G.sub(b,a),ts[i])),mid=G.mul(G.add(p,q),.5);if(!G.inside(mid,G.domain(shape)))continue;const legal=polys.every(poly=>G.inside(mid,poly));ctx.setLineDash(legal?[]:[3,4]);U.stroke(ctx,[p,q],shape,false,legal?'#b3ffff':'#ff899c');}ctx.restore();
   }catch{/* Preserve invalid imported data without a misleading guide. */}}
-  return{kind:'layout',initial,check,direction,distance,points,move,blend,fit,draw,display,hit};
+  return{kind:'layout',initial,check,direction,distance,points,move,blend,fit,draw,display,hit,pointerGoal};
 })();

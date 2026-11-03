@@ -7,3 +7,5 @@ Non-anchor markers slide independently along the line, even for saved `locked: t
 Requires `surface-tools`. Solid cyan segments are legal for the selected role; dashed red segments are excluded by its area. Moving an area preserves the world line and projects its colors along legal intervals. Empty intersections stop the area.
 
 Geometry, controls and entry are separate. Tests in `tests/cases.cjs` and the shared gesture suite run against source and standalone HTML.
+
+Square guide angles and signed distances retain their saved HSL meaning. Their path is projected onto the CSP-style HSV square and can curve. Pointer hits and independent point drags follow that visible curve. Triangle guides remain straight in their existing geometry.
