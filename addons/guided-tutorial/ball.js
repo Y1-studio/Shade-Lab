@@ -16,7 +16,7 @@ const ballSteps = [
   "view": "balls",
   "target": "#wheel",
   "copy": [
-   "Each point represents a part of the ball. Drag it around the ring to change hue, or inside the square to change saturation and lightness.",
+   "Each point represents a part of the ball. Drag it around the ring to change hue, or inside the square to change HSV saturation and value.",
    "Choose overlapping points with Editing color. This tour uses a square so the previews match; Wheel settings also offers a triangle."
   ]
  },
